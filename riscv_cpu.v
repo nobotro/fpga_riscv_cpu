@@ -34,14 +34,14 @@ reg[15:0] tmpof16;
 reg[19:0] imm20;
 
  
-
-
- 
 wire[31:0] address;
 wire[31:0] dataread;
-reg[31:0] dataread;
 wire[31:0] datawrite;
 wire wren;
+
+reg[31:0] datre;
+reg[31:0] datwr;
+reg wr_enable;
 reg rstore=0;
 reg rload=0;
 reg[31:0] storeloadaddr;
@@ -49,6 +49,9 @@ reg[31:0] storeloadaddr;
 
 //if load or store is active when adress musb be load or store adress
 assign address=pc ? !(rstore | load):storeloadaddr;
+assign wren=wr_enable;
+assign datawrite=datwr;
+
 
 ramm ram(.address(address),
 			.clock(clk),
@@ -86,6 +89,7 @@ begin
 //if previous instruction was load data from memory
 if(load)
 	begin
+	   
 		case(load)
 	 
 				8:begin
@@ -107,9 +111,8 @@ if(load)
 //if previous instruction was store data in memory
 else if(store)
 begin
-
-
-
+store=0;
+wr_enable=0;
 
 end
 
@@ -468,7 +471,6 @@ case(opcode)
 		 
 		 
 //Store Instructions
-
    7'b0100011:begin
 	
 		 rs1=romline[19:15];
@@ -476,13 +478,14 @@ case(opcode)
 		 imm={romline[31:25],romline[11:7]};
 		 storeloadaddr={{{20{imm[11]}}},imm}+rs1;
 		 pc=pc+1;
+		 wr_enable=1;
 	   case(func3)
 		 //SB
-		 3'b000:store=8;
+		 3'b000:datwr=registers[rs2]&'hff;
 		 //SH
-		 3'b001:store=16;
+		 3'b001:datwr=registers[rs2]&'hffff;
 		 //SW
-		 3'b010:store=32;
+		 3'b010:datwr=registers[rs2];
 		
 		endcase
 		end
