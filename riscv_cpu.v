@@ -39,14 +39,16 @@ reg[19:0] imm20;
  
 wire[31:0] address;
 wire[31:0] dataread;
+reg[31:0] dataread;
 wire[31:0] datawrite;
 wire wren;
 reg rstore=0;
 reg rload=0;
+reg[31:0] storeloadaddr;
 
- 
 
-
+//if load or store is active when adress musb be load or store adress
+assign address=pc ? !(rstore | load):storeloadaddr;
 
 ramm ram(.address(address),
 			.clock(clk),
@@ -83,11 +85,24 @@ begin
 
 //if previous instruction was load data from memory
 if(load)
-begin
-
-
-
-end
+	begin
+		case(load)
+	 
+				8:begin
+						tmpof8=dataread&'hff;
+						registers[rd]= {{24{tmpof8[7]}},tmpof8};
+					end
+				16:begin
+						tmpof16=dataread&'hffff;
+						registers[rd]= {{16{tmpof16[15]}},tmpof16};	
+					end
+				32:registers[rd]=dataread;
+				81:registers[rd]=dataread&'hff;
+				161:registers[rd]=dataread&'hffff;
+					 
+		endcase
+		load=0;
+	end
 
 //if previous instruction was store data in memory
 else if(store)
@@ -101,6 +116,7 @@ end
 
 else begin
 //fetch opcode in current cycle if not store or load
+romline=dataread;
 opcode=romline[6:0];
 func3=romline[14:12];//get func3 from opcode
  
@@ -434,105 +450,41 @@ case(opcode)
 		 rs1=romline[19:15];
 		 rd=romline[11:7];
 		 imm=romline[31:20];
+		 storeloadaddr={{{20{imm[11]}}},imm}+rs1;
+		 pc=pc+1;
 	    case(func3)
-		 
-		 //LB
-		 3'b000:
-		 begin
-		 
-		 
-		 //tmpof8={ram[{{{20{imm[11]}}},imm}+rs1]}&'hff;
-		 registers[rd]= {{24{tmpof8[7]}},tmpof8};
-		 pc=pc+1;
-		 
-		 
-		 end
-		 
-		 
-		 //LH		 
-		 3'b001:
-		 
-		 begin
-		 
-		 
-		 //tmpof16={ram[{{20{imm[11]}},imm}+rs1]}&'hffff;
-		 registers[rd]= {{16{tmpof16[15]}},tmpof16};
-		 pc=pc+1;
-		 
-		 
-		 end
-		 
-		 //LW
-		 3'b010:
-		  begin
-		 
-		 
-			
-			 //registers[rd]= ram[{{20{imm[11]}},imm}+rs1];
-			 pc=pc+1;
-		 
-		 
-		 end
-		 
-		 //LBU
-		 3'b100:
-		 
-		  begin
-		 
-		 
-		
-		 //registers[rd]= {ram[{{20{imm[11]}},imm}+rs1]}&'hff;
-		 pc=pc+1;
-		 
-		 
-		 end
-		 
-		 
-		 
-		 //LHU
-		 3'b101:
-		 
-		  begin
-		 
-		 
-		
-		 //registers[rd]= {ram[{{20{imm[11]}},imm}+rs1]}&'hffff;
-		 pc=pc+1;
-		 
-		 
-		 end
-		 
-		
-		 
-	
+			 //LB
+			 3'b000:load=8;
+			 //LH		 
+			 3'b001:load=16;
+			 //LW
+			 3'b010:load=32;
+			 //LBU
+			 3'b100:load=81
+			 //LHU
+			 3'b101:load=161;		  	 
 		 endcase
-		 end
+	    end
 		 
-	
 		 
 //Store Instructions
 
    7'b0100011:begin
 	
-		rs1=romline[19:15];
+		 rs1=romline[19:15];
 		 rs2=romline[24:20];
 		 imm={romline[31:25],romline[11:7]};
-//	   case(func3)
-//		
-//		
-//		//SB
-//		3'b000:
-//		   //ram[{{20{imm[11]}},imm}+rs1]=registers[rs2]&'hff;
-//		
-//		//SH
-//		3'b001:
-//			//ram[{{20{imm[11]}},imm}+rs1]=registers[rs2]&'hffff;
-//		
-//		//SW
-//		3'b010:
-//			//ram[{{20{imm[11]}},imm}+rs1]=registers[rs2];
-//		
-//		endcase
+		 storeloadaddr={{{20{imm[11]}}},imm}+rs1;
+		 pc=pc+1;
+	   case(func3)
+		 //SB
+		 3'b000:store=8;
+		 //SH
+		 3'b001:store=16;
+		 //SW
+		 3'b010:store=32;
+		
+		endcase
 		end
    
 	
