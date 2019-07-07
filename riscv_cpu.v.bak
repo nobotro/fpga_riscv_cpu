@@ -1,0 +1,589 @@
+
+
+
+module riscv_cpu(input clk,
+input reset,
+output[3:0] ledss
+
+);
+
+
+reg[3:0] leds;
+wire[31:0] romline;
+
+reg[31:0] registers[0:31];//cpu registers
+
+reg[31:0] ram[0:40]; //ram
+
+reg [31:0] pc=32'b0;//program counter
+//
+wire [6:0] opcode;
+//reg [5] rs1;
+//reg [5] rd;
+
+
+
+ 
+reg[11:0] imm;   //reg for save imediate(12bit) value
+wire[2:0] func3;  //reg to save func3 value,max 3 bit
+
+reg[4:0] rd;
+reg[4:0] rs1;
+reg[4:0] rs2;
+reg[7:0] tmpof8;
+reg[15:0] tmpof16;
+reg[19:0] imm20;
+
+reg init;
+
+integer i;
+ 
+initial
+
+begin
+ 	 
+
+
+$readmemb("/home/home/fpgaworkspace/riscv_pc/rom.bin", ram,0);
+
+	
+ 
+
+end
+
+
+
+assign ledss=ram[35];
+assign romline=ram[pc];
+ 
+assign opcode=romline[6:0];///get opcode from line
+
+assign func3=romline[14:12];//get func3 from opcode
+
+ 
+ 
+
+//always @(posedge reset or posedge clk)
+//begin
+//
+//if(reset)
+//	for(i=0;i<32;i=i+1)
+//	registers[i]=0;
+//
+//end
+
+
+
+always @(*)
+begin
+
+case(opcode)
+ 
+//Integer Register-Immediate Instructions
+	7'b0010011:begin
+	
+		 rs1=romline[19:15];
+		 rd=romline[11:7];
+		 imm=romline[31:20];
+		 
+		 //{{20{imm[11]}},imm} is 32 bit signed extended value
+		 case(func3)
+			//ADDI
+			3'b000:
+				begin
+				
+				registers[rd]=32'b0;
+				 registers[rd]={{20{imm[11]}},imm}+registers[rs1];
+				 pc=pc+1;
+				end
+				
+			
+			//SLTI
+			3'b010:
+			
+				begin
+				registers[rd]=32'b0;
+				 registers[rd]=$signed(registers[rs1])<$signed({{20{imm[11]}},imm});
+				 pc=pc+1;
+
+				
+				end
+			   
+	
+	
+	
+	
+
+
+
+
+			//SLTIU
+			3'b011:
+			   begin
+				 registers[rd]=registers[rs1]<{{20{imm[11]}},imm};
+				 pc=pc+1;
+
+				
+				end
+			
+			
+			//XORI
+			3'b100:
+			
+		    	begin
+				 registers[rd]=registers[rs1] ^ {{20{imm[11]}},imm} ;
+				 pc=pc+1;
+
+				
+				end
+			
+			//ORI
+			3'b110:
+				
+				begin
+				 registers[rd]=registers[rs1] | {{20{imm[11]}},imm} ;
+				 pc=pc+1;
+
+				
+				end
+			
+			//ANDI
+			3'b111:
+				begin
+				 registers[rd]=registers[rs1] & {{20{imm[11]}},imm} ;
+				 pc=pc+1;
+
+				
+				end
+			
+			//SLLI
+			3'b001:
+			
+				begin
+				 registers[rd]=registers[rs1] << imm[4:0] ;
+				 pc=pc+1;
+
+				
+				end
+
+			//SRLI,SRAI
+			3'b101:
+			   case(imm[11:7])
+				 //SRLI
+				 1'b0:
+				   begin
+					  registers[rd]=registers[rs1] >> imm[4:0] ;
+					  pc=pc+1;
+					 
+					end
+					
+				//SRAI
+				7'b01000:
+					begin
+					 
+					  registers[rd]=registers[rs1] >>> imm[4:0] ;
+					  pc=pc+1;
+					 
+					end
+				 
+				 
+				 
+				 
+			   endcase
+			
+			endcase
+			end
+			
+			
+	//LUI
+	7'b0110111:
+	begin
+	    
+		 rd=romline[11:7];
+		 imm=romline[31:12];
+		 registers[rd]=imm<<12;
+		 pc=pc+1;
+		 
+	end
+	
+	
+	
+	//AUIPC
+	7'b0010111:
+	begin
+		rd=romline[11:7];
+		imm=romline[31:12];
+		registers[rd]=pc+(imm<<12);
+		pc=pc+1;
+	
+	end
+	
+	
+	
+	
+	
+//Integer Register-Register Operations
+	7'b0110011:begin
+		 
+		 rs1=romline[19:15];
+		 rs2=romline[24:20];
+		 rd=romline[11:7];
+		 
+		 case(func3)
+		 	
+			//ADD,SUB
+			3'b000:
+			  begin
+			   case(romline[31:25])
+				
+				1'b0:
+				  
+				  begin
+				  registers[rd]=registers[rs1] + registers[rs2]  ;
+				  pc=pc+1;
+				  
+				  
+				  end
+				7'b0100000:
+				  begin
+				   
+				  registers[rd]=registers[rs1] - registers[rs2]  ;
+				  pc=pc+1;
+				  
+				  
+				  
+				  end
+				
+           			  
+			  endcase
+			  end
+			
+			//SLL
+			3'b001:
+			    begin
+				   
+				  registers[rd]=registers[rs1]<< registers[rs2]  ;
+				  pc=pc+1;
+				  
+			  
+				 end
+			
+			//SLT
+			3'b010:
+			     begin
+				   
+				  registers[rd]=$signed(registers[rs1]) < $signed(registers[rs2]);
+				  pc=pc+1;
+				  
+				  
+				  
+				  end
+			
+			
+			//SLTU
+			3'b011:
+		
+				 begin
+				   
+				  registers[rd]=registers[rs1] < registers[rs2]  ;
+				  pc=pc+1;
+				  
+				  
+				  
+				  end
+			//XOR
+			3'b100:
+			
+				 begin
+				   
+				  registers[rd]=registers[rs1] ^ registers[rs2]  ;
+				  pc=pc+1;
+				  
+				  
+				  
+				  end
+			
+			//SRL,SRA 
+			3'b101:
+		
+				case(romline[31:25])
+				
+				
+				//SRL
+				1'b0:
+				  
+				  begin
+				  registers[rd]=registers[rs1] >> registers[rs2]  ;
+				  pc=pc+1;
+				  
+				  
+				  end
+				  
+				//SRA
+				7'b0100000:
+				  begin
+				   
+				  registers[rd]=registers[rs1] >>> registers[rs2]  ;
+				  pc=pc+1;
+				  
+				  
+				  
+				  end
+				
+           			  
+			  endcase
+			
+			//OR
+			3'b110:
+			
+			 begin
+				   
+				  registers[rd]=registers[rs1] | registers[rs2]  ;
+				  pc=pc+1;
+				  
+				  
+				  
+				  end
+			
+			//AND
+			3'b111:
+			   begin
+				   
+				  registers[rd]=registers[rs1] & registers[rs2]  ;
+				  pc=pc+1;
+				  
+				  
+				  
+				  end
+			
+					
+		
+		
+		endcase
+		end
+		
+
+	
+//Unconditional Jumps
+
+   //JAL
+	7'b1101111:
+	   begin
+		
+		//uj imm
+		imm20={romline[31],romline[19:12],romline[11],romline[30:21]};
+		rd=romline[11:7];
+		registers[rd]=pc+1;
+		pc=rd+({{11{imm20[19]}},imm20,1'b0});
+				  
+		
+		end
+	  
+	
+	
+	
+	//JALR
+	7'b1100111:
+	
+		begin
+		
+		 rs1=romline[19:15];
+		 rd=romline[11:7];
+		 imm=romline[31:20];
+		 registers[rd]=pc+1;
+		 pc=($signed(registers[rs1])+$signed({{20{imm[11]}},imm})) & 'hfffffffe;
+		
+		
+		end
+	
+	
+
+		 
+//Load Instructions
+   
+	7'b0000011:begin
+		 rs1=romline[19:15];
+		 rd=romline[11:7];
+		 imm=romline[31:20];
+	    case(func3)
+		 
+		 //LB
+		 3'b000:
+		 begin
+		 
+		 
+		 tmpof8={ram[{{{20{imm[11]}}},imm}+rs1]}&'hff;
+		 registers[rd]= {{24{tmpof8[7]}},tmpof8};
+		 pc=pc+1;
+		 
+		 
+		 end
+		 
+		 
+		 //LH		 
+		 3'b001:
+		 
+		 begin
+		 
+		 
+		 tmpof16={ram[{{20{imm[11]}},imm}+rs1]}&'hffff;
+		 registers[rd]= {{16{tmpof16[15]}},tmpof16};
+		 pc=pc+1;
+		 
+		 
+		 end
+		 
+		 //LW
+		 3'b010:
+		  begin
+		 
+		 
+			
+			 registers[rd]= ram[{{20{imm[11]}},imm}+rs1];
+			 pc=pc+1;
+		 
+		 
+		 end
+		 
+		 //LBU
+		 3'b100:
+		 
+		  begin
+		 
+		 
+		
+		 registers[rd]= {ram[{{20{imm[11]}},imm}+rs1]}&'hff;
+		 pc=pc+1;
+		 
+		 
+		 end
+		 
+		 
+		 
+		 //LHU
+		 3'b101:
+		 
+		  begin
+		 
+		 
+		
+		 registers[rd]= {ram[{{20{imm[11]}},imm}+rs1]}&'hffff;
+		 pc=pc+1;
+		 
+		 
+		 end
+		 
+		
+		 
+	
+		 endcase
+		 end
+		 
+	
+		 
+//Store Instructions
+
+   7'b0100011:begin
+	
+		rs1=romline[19:15];
+		 rs2=romline[24:20];
+		 imm={romline[31:25],romline[11:7]};
+	   case(func3)
+		
+		
+		//SB
+		3'b000:
+		   ram[{{20{imm[11]}},imm}+rs1]=registers[rs2]&'hff;
+		
+		//SH
+		3'b001:
+			ram[{{20{imm[11]}},imm}+rs1]=registers[rs2]&'hffff;
+		
+		//SW
+		3'b010:
+			ram[{{20{imm[11]}},imm}+rs1]=registers[rs2];
+		
+		endcase
+		end
+   
+	
+//Conditional Branches
+
+   
+	7'b1100011:begin
+	    rs1=romline[19:15];
+		 rs2=romline[24:20];
+		 imm={romline[31],romline[7],romline[30:25],romline[11:8]};
+	    case(func3)
+		 
+		 //BEQ
+		 3'b000:
+			 if(registers[rs1]==registers[rs2])
+			 begin
+				pc=pc+{{19{imm[11]}},imm,1'b0};
+			 
+			 end
+			
+		 
+		 //BNE
+		 3'b001:
+		 if(registers[rs1]!=registers[rs2])
+		 begin
+			pc=pc+{{19{imm[11]}},imm,1'b0};
+		 
+		 end
+		 
+		 //BLT
+		 3'b100:
+		 if($signed(registers[rs1])<$signed(registers[rs2]))
+		 begin
+			pc=pc+{{19{imm[11]}},imm,1'b0};
+		 
+		 end
+		 
+		 //BGE
+		 3'b101:
+		 if($signed(registers[rs1])>=$signed(registers[rs2]))
+		 begin
+			pc=pc+{{19{imm[11]}},imm,1'b0};
+		 
+		 end
+		 
+		 //BLTU
+		 3'b110:
+		 if(registers[rs1]<registers[rs2])
+		 begin
+			pc=pc+{{19{imm[11]}},imm,1'b0};
+		 
+		 end
+		 
+		 //BGEU
+		 3'b111:
+		 if(registers[rs1]>=registers[rs2])
+		 begin
+			pc=pc+{{19{imm[11]}},imm,1'b0};
+		 
+		 end
+		 
+		 
+		 
+		 endcase
+		 
+		 end 
+		 
+
+
+
+endcase
+
+
+
+
+end
+
+
+
+endmodule
+
+
+
