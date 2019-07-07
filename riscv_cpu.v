@@ -9,7 +9,7 @@ output[3:0] ledss
 
 
 reg[3:0] leds;
-wire[31:0] romline;
+reg[31:0] romline;
 
 reg[31:0] registers[0:31];//cpu registers
 
@@ -19,7 +19,6 @@ reg [31:0] pc=0;//program counter
 reg [6:0] opcode;
 //reg [5] rs1;
 //reg [5] rd;
-
 
 
  
@@ -42,13 +41,13 @@ wire wren;
 reg[31:0] datre;
 reg[31:0] datwr;
 reg wr_enable;
-reg rstore=0;
-reg rload=0;
+reg store=0;
+reg load=0;
 reg[31:0] storeloadaddr;
 
 
 //if load or store is active when adress musb be load or store adress
-assign address=pc ? !(rstore | load):storeloadaddr;
+assign address= !(store | load) ?pc:storeloadaddr;
 assign wren=wr_enable;
 assign datawrite=datwr;
 
@@ -59,16 +58,6 @@ ramm ram(.address(address),
 			.wren(wren),
 			.q(dataread)
 			); //used 1 port ram ip core
-
-			 
-			 
-
-
-
-
-
-
-
 
 
 integer i;
@@ -157,13 +146,6 @@ case(opcode)
 				
 				end
 			   
-	
-	
-	
-	
-
-
-
 
 			//SLTIU
 			3'b011:
@@ -463,7 +445,7 @@ case(opcode)
 			 //LW
 			 3'b010:load=32;
 			 //LBU
-			 3'b100:load=81
+			 3'b100:load=81;
 			 //LHU
 			 3'b101:load=161;		  	 
 		 endcase
@@ -479,6 +461,7 @@ case(opcode)
 		 storeloadaddr={{{20{imm[11]}}},imm}+rs1;
 		 pc=pc+1;
 		 wr_enable=1;
+		 store=1;
 	   case(func3)
 		 //SB
 		 3'b000:datwr=registers[rs2]&'hff;
@@ -565,7 +548,7 @@ endcase
 
 end
 
-
+end
 
 endmodule
 

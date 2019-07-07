@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/home/home/fpgaworkspace/riscv_cpu
 va_graycounter
-Z1 !s110 1562494905
+Z1 !s110 1562527686
 !i10b 1
 !s100 7RL@7]^Mkb[^0^A4A<DHg3
 I8DVQDIU=kGkckL7bCR]Z<0
@@ -23,7 +23,7 @@ Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1562494904.000000
+Z7 !s108 1562527685.000000
 Z8 !s107 /home/home/intelFPGA_lite/18.1/quartus/eda/sim_lib/altera_mf.v|
 Z9 !s90 -reportprogress|300|-work|./altera_mf_ver|/home/home/intelFPGA_lite/18.1/quartus/eda/sim_lib/altera_mf.v|
 !i113 1
@@ -240,7 +240,7 @@ R9
 R10
 R11
 valtaccumulate
-R1
+Z12 !s110 1562527685
 !i10b 1
 !s100 ]J^>>M@KIe6:;k?@cL6jK0
 IgFgS=6dJSOINWE0z?N]B<2
@@ -366,7 +366,7 @@ R9
 R10
 R11
 vALTERA_DEVICE_FAMILIES
-Z12 !s110 1562494904
+R12
 !i10b 1
 !s100 LWTeFO?a^6l3ea7?@d<9?0
 IU5boFXe_J8aaCK@YLS]6i3
@@ -474,7 +474,7 @@ R9
 R10
 R11
 valtera_syncram_derived
-R1
+R12
 !i10b 1
 !s100 hWa=4zA9QWk>DjHUA9O_03
 I9dH:eCfnY@49WkKQU;l>M2
@@ -495,7 +495,7 @@ R9
 R10
 R11
 valtera_syncram_derived_forwarding_logic
-R1
+R12
 !i10b 1
 !s100 JdkVPmcjH;EBkEX<QBT7e1
 InH4mCioj5fe4[2S3dc;BS1
@@ -579,7 +579,7 @@ R9
 R10
 R11
 valtmult_accum
-R1
+R12
 !i10b 1
 !s100 DiYBWLQQ0V7IkzHZ9PD3z0
 I56Rcdi5VOF1P;0z;z:[JK1
@@ -978,7 +978,7 @@ R9
 R10
 R11
 vdcfifo
-R1
+R12
 !i10b 1
 !s100 >_QjdB6M?Fk4HL;6^^<ME2
 II_dO?oY0gB4WWcCVa]6^h0
@@ -1083,7 +1083,7 @@ R9
 R10
 R11
 vdcfifo_mixed_widths
-R1
+R12
 !i10b 1
 !s100 CJX4jRYM4PgegWl0iQXAi2
 ImR1:4W:Ro<kUnCIjhjnm@2

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv_cpu
-Sun Jul  7 14:25:44 2019
+Sun Jul  7 23:27:22 2019
 Quartus Prime Version 18.1.1 Build 646 04/11/2019 SJ Lite Edition
 
 
@@ -10,7 +10,19 @@ Quartus Prime Version 18.1.1 Build 646 04/11/2019 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis IP Cores Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Source assignments for ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated
+ 12. Parameter Settings for User Entity Instance: ramm:ram|altsyncram:altsyncram_component
+ 13. altsyncram Parameter Settings by Entity Instance
+ 14. Port Connectivity Checks: "ramm:ram"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -37,20 +49,20 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Sun Jul  7 14:25:44 2019           ;
+; Analysis & Synthesis Status        ; Successful - Sun Jul  7 23:27:22 2019       ;
 ; Quartus Prime Version              ; 18.1.1 Build 646 04/11/2019 SJ Lite Edition ;
 ; Revision Name                      ; riscv_cpu                                   ;
 ; Top-level Entity Name              ; riscv_cpu                                   ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; N/A until Partition Merge                   ;
-;     Total combinational functions  ; N/A until Partition Merge                   ;
-;     Dedicated logic registers      ; N/A until Partition Merge                   ;
-; Total registers                    ; N/A until Partition Merge                   ;
-; Total pins                         ; N/A until Partition Merge                   ;
-; Total virtual pins                 ; N/A until Partition Merge                   ;
-; Total memory bits                  ; N/A until Partition Merge                   ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
-; Total PLLs                         ; N/A until Partition Merge                   ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 6                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -156,13 +168,237 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                 ;
++----------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                         ; Library ;
++----------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------------+---------+
+; rom.mif                          ; yes             ; User Memory Initialization File  ; /home/home/fpgaworkspace/riscv_cpu/rom.mif                                           ;         ;
+; riscv_cpu.v                      ; yes             ; User Verilog HDL File            ; /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v                                       ;         ;
+; ramm.v                           ; yes             ; User Wizard-Generated File       ; /home/home/fpgaworkspace/riscv_cpu/ramm.v                                            ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; /home/home/intelFPGA_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; /home/home/intelFPGA_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; /home/home/intelFPGA_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; /home/home/intelFPGA_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                     ; /home/home/intelFPGA_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; /home/home/intelFPGA_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                     ; /home/home/intelFPGA_lite/18.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                     ; /home/home/intelFPGA_lite/18.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; /home/home/intelFPGA_lite/18.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_ech1.tdf           ; yes             ; Auto-Generated Megafunction      ; /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf                            ;         ;
+; db/decode_jsa.tdf                ; yes             ; Auto-Generated Megafunction      ; /home/home/fpgaworkspace/riscv_cpu/db/decode_jsa.tdf                                 ;         ;
+; db/decode_c8a.tdf                ; yes             ; Auto-Generated Megafunction      ; /home/home/fpgaworkspace/riscv_cpu/db/decode_c8a.tdf                                 ;         ;
+; db/mux_gob.tdf                   ; yes             ; Auto-Generated Megafunction      ; /home/home/fpgaworkspace/riscv_cpu/db/mux_gob.tdf                                    ;         ;
++----------------------------------+-----------------+----------------------------------+--------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 6     ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 6     ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |riscv_cpu                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 6    ; 0            ; |riscv_cpu          ; riscv_cpu   ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                 ;
++--------+--------------+---------+--------------+--------------+---------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance     ; IP Include File ;
++--------+--------------+---------+--------------+--------------+---------------------+-----------------+
+; Altera ; RAM: 1-PORT  ; 18.1    ; N/A          ; N/A          ; |riscv_cpu|ramm:ram ; ramm.v          ;
++--------+--------------+---------+--------------+--------------+---------------------+-----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                ;
++----------------------------------------------------------------------------------------------+--------------------+
+; Register name                                                                                ; Reason for Removal ;
++----------------------------------------------------------------------------------------------+--------------------+
+; ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|address_reg_a[0]     ; Lost fanout        ;
+; ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|out_address_reg_a[0] ; Lost fanout        ;
+; Total Number of Removed Registers = 2                                                        ;                    ;
++----------------------------------------------------------------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------+
+; Source assignments for ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------+
+; Assignment                      ; Value              ; From ; To                               ;
++---------------------------------+--------------------+------+----------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                ;
++---------------------------------+--------------------+------+----------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ramm:ram|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+---------------------------+
+; Parameter Name                     ; Value                ; Type                      ;
++------------------------------------+----------------------+---------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                   ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                   ;
+; WIDTH_A                            ; 32                   ; Signed Integer            ;
+; WIDTHAD_A                          ; 14                   ; Signed Integer            ;
+; NUMWORDS_A                         ; 12000                ; Signed Integer            ;
+; OUTDATA_REG_A                      ; CLOCK0               ; Untyped                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                   ;
+; WIDTH_B                            ; 1                    ; Untyped                   ;
+; WIDTHAD_B                          ; 1                    ; Untyped                   ;
+; NUMWORDS_B                         ; 1                    ; Untyped                   ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                   ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                   ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer            ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                   ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                   ;
+; BYTE_SIZE                          ; 8                    ; Untyped                   ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                   ;
+; INIT_FILE                          ; rom.mif              ; Untyped                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                   ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                   ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                   ;
+; DEVICE_FAMILY                      ; Cyclone IV E         ; Untyped                   ;
+; CBXI_PARAMETER                     ; altsyncram_ech1      ; Untyped                   ;
++------------------------------------+----------------------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                     ;
++-------------------------------------------+------------------------------------------+
+; Name                                      ; Value                                    ;
++-------------------------------------------+------------------------------------------+
+; Number of entity instances                ; 1                                        ;
+; Entity Instance                           ; ramm:ram|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                              ;
+;     -- WIDTH_A                            ; 32                                       ;
+;     -- NUMWORDS_A                         ; 12000                                    ;
+;     -- OUTDATA_REG_A                      ; CLOCK0                                   ;
+;     -- WIDTH_B                            ; 1                                        ;
+;     -- NUMWORDS_B                         ; 1                                        ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                   ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                             ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                     ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                ;
++-------------------------------------------+------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ramm:ram"                                                                                                                                                                             ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                             ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; address ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (14 bits) it drives.  The 18 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; wren    ; Input ; Info     ; Stuck at VCC                                                                                                                                                                        ;
++---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 6                           ;
+; cycloneiii_lcell_comb ; 1                           ;
+;     normal            ; 1                           ;
+;         0 data inputs ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.1 Build 646 04/11/2019 SJ Lite Edition
-    Info: Processing started: Sun Jul  7 14:25:29 2019
+    Info: Processing started: Sun Jul  7 23:27:05 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv_cpu -c riscv_cpu
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -170,14 +406,257 @@ Info (12021): Found 1 design units, including 1 entities, in source file riscv_c
     Info (12023): Found entity 1: riscv_cpu File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file ramm.v
     Info (12023): Found entity 1: ramm File: /home/home/fpgaworkspace/riscv_cpu/ramm.v Line: 40
-Error (10137): Verilog HDL Procedural Assignment error at riscv_cpu.v(102): object "clk" on left-hand side of assignment must have a variable data type File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 102
-Error (10231): Verilog HDL error at riscv_cpu.v(102): value cannot be assigned to input "clk" File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 102
-Error (10137): Verilog HDL Procedural Assignment error at riscv_cpu.v(103): object "clk" on left-hand side of assignment must have a variable data type File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 103
-Error (10231): Verilog HDL error at riscv_cpu.v(103): value cannot be assigned to input "clk" File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 103
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 4 errors, 1 warning
-    Error: Peak virtual memory: 836 megabytes
-    Error: Processing ended: Sun Jul  7 14:25:44 2019
-    Error: Elapsed time: 00:00:15
-    Error: Total CPU time (on all processors): 00:00:38
+Info (12127): Elaborating entity "riscv_cpu" for the top level hierarchy
+Warning (10199): Verilog HDL Case Statement warning at riscv_cpu.v(84): case item expression never matches the case expression File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 84
+Warning (10199): Verilog HDL Case Statement warning at riscv_cpu.v(88): case item expression never matches the case expression File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 88
+Warning (10199): Verilog HDL Case Statement warning at riscv_cpu.v(92): case item expression never matches the case expression File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 92
+Warning (10199): Verilog HDL Case Statement warning at riscv_cpu.v(93): case item expression never matches the case expression File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 93
+Warning (10199): Verilog HDL Case Statement warning at riscv_cpu.v(94): case item expression never matches the case expression File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 94
+Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(82): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 82
+Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(201): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 201
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(233): truncated value with size 20 to match size of target (12) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 233
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(245): truncated value with size 20 to match size of target (12) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 245
+Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(267): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 267
+Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(339): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 339
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(442): truncated value with size 32 to match size of target (1) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 442
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(444): truncated value with size 32 to match size of target (1) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 444
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(446): truncated value with size 32 to match size of target (1) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 446
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(448): truncated value with size 32 to match size of target (1) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 448
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(450): truncated value with size 32 to match size of target (1) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 450
+Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(440): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 440
+Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(464): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 464
+Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(483): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 483
+Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(115): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 115
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "load", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "store", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "wr_enable", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "romline", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "opcode", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "func3", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "imm20", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "rd", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "pc", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "rs1", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "imm", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "rs2", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "storeloadaddr", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "datwr", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
+Warning (10034): Output port "ledss" at riscv_cpu.v(8) has no driver File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 8
+Info (10041): Inferred latch for "datwr[0]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[1]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[2]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[3]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[4]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[5]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[6]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[7]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[8]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[9]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[10]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[11]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[12]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[13]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[14]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[15]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[16]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[17]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[18]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[19]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[20]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[21]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[22]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[23]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[24]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[25]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[26]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[27]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[28]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[29]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[30]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "datwr[31]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[0]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[1]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[2]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[3]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[4]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[5]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[6]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[7]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[8]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[9]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[10]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[11]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[12]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[13]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[14]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[15]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[16]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[17]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[18]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[19]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[20]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[21]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[22]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[23]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[24]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[25]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[26]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[27]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[28]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[29]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[30]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "storeloadaddr[31]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[0]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[1]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[2]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[3]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[4]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[5]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[6]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[7]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[8]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[9]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[10]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[11]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[12]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[13]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[14]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[15]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[16]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[17]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[18]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[19]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[20]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[21]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[22]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[23]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[24]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[25]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[26]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[27]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[28]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[29]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[30]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "pc[31]" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "wr_enable" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "store" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (10041): Inferred latch for "load" at riscv_cpu.v(101) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Info (12128): Elaborating entity "ramm" for hierarchy "ramm:ram" File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 60
+Info (12128): Elaborating entity "altsyncram" for hierarchy "ramm:ram|altsyncram:altsyncram_component" File: /home/home/fpgaworkspace/riscv_cpu/ramm.v Line: 86
+Info (12130): Elaborated megafunction instantiation "ramm:ram|altsyncram:altsyncram_component" File: /home/home/fpgaworkspace/riscv_cpu/ramm.v Line: 86
+Info (12133): Instantiated megafunction "ramm:ram|altsyncram:altsyncram_component" with the following parameter: File: /home/home/fpgaworkspace/riscv_cpu/ramm.v Line: 86
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "rom.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "12000"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "14"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ech1.tdf
+    Info (12023): Found entity 1: altsyncram_ech1 File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 34
+Info (12128): Elaborating entity "altsyncram_ech1" for hierarchy "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated" File: /home/home/intelFPGA_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_jsa.tdf
+    Info (12023): Found entity 1: decode_jsa File: /home/home/fpgaworkspace/riscv_cpu/db/decode_jsa.tdf Line: 23
+Info (12128): Elaborating entity "decode_jsa" for hierarchy "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|decode_jsa:decode3" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 45
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_c8a.tdf
+    Info (12023): Found entity 1: decode_c8a File: /home/home/fpgaworkspace/riscv_cpu/db/decode_c8a.tdf Line: 23
+Info (12128): Elaborating entity "decode_c8a" for hierarchy "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|decode_c8a:rden_decode" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 46
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_gob.tdf
+    Info (12023): Found entity 1: mux_gob File: /home/home/fpgaworkspace/riscv_cpu/db/mux_gob.tdf Line: 23
+Info (12128): Elaborating entity "mux_gob" for hierarchy "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|mux_gob:mux2" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 47
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a0" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 48
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a1" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 73
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a2" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 98
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a3" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 123
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a4" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 148
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a5" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 173
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a6" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 198
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a7" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 223
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a8" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 248
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a9" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 273
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a10" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 298
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a11" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 323
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a12" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 348
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a13" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 373
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a14" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 398
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a15" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 423
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a16" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 448
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a17" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 473
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a18" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 498
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a19" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 523
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a20" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 548
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a21" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 573
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a22" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 598
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a23" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 623
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a24" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 648
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a25" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 673
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a26" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 698
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a27" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 723
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a28" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 748
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a29" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 773
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a30" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 798
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a31" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 823
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a32" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 848
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a33" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 873
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a34" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 898
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a35" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 923
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a36" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 948
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a37" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 973
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a38" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 998
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a39" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1023
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a40" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1048
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a41" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1073
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a42" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1098
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a43" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1123
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a44" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1148
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a45" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1173
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a46" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1198
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a47" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1223
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a48" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1248
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a49" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1273
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a50" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1298
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a51" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1323
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a52" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1348
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a53" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1373
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a54" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1398
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a55" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1423
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a56" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1448
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a57" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1473
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a58" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1498
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a59" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1523
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a60" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1548
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a61" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1573
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a62" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1598
+        Warning (14320): Synthesized away node "ramm:ram|altsyncram:altsyncram_component|altsyncram_ech1:auto_generated|ram_block1a63" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_ech1.tdf Line: 1623
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "ledss[0]" is stuck at GND File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 8
+    Warning (13410): Pin "ledss[1]" is stuck at GND File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 8
+    Warning (13410): Pin "ledss[2]" is stuck at GND File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 8
+    Warning (13410): Pin "ledss[3]" is stuck at GND File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 8
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk" File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 4
+    Warning (15610): No output dependent on input pin "reset" File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 5
+Info (21057): Implemented 6 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 4 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 111 warnings
+    Info: Peak virtual memory: 931 megabytes
+    Info: Processing ended: Sun Jul  7 23:27:22 2019
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:41
 
 
