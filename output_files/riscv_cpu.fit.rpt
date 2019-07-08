@@ -1,5 +1,5 @@
 Fitter report for riscv_cpu
-Sun Jul  7 23:27:27 2019
+Tue Jul  9 00:26:17 2019
 Quartus Prime Version 18.1.1 Build 646 04/11/2019 SJ Lite Edition
 
 
@@ -59,7 +59,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Sun Jul  7 23:27:27 2019       ;
+; Fitter Status                      ; Successful - Tue Jul  9 00:26:17 2019       ;
 ; Quartus Prime Version              ; 18.1.1 Build 646 04/11/2019 SJ Lite Edition ;
 ; Revision Name                      ; riscv_cpu                                   ;
 ; Top-level Entity Name              ; riscv_cpu                                   ;
@@ -151,7 +151,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -772,11 +772,11 @@ Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
 Info (144001): Generated suppressed messages file /home/home/fpgaworkspace/riscv_cpu/output_files/riscv_cpu.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 1194 megabytes
-    Info: Processing ended: Sun Jul  7 23:27:27 2019
+    Info: Peak virtual memory: 1196 megabytes
+    Info: Processing ended: Tue Jul  9 00:26:17 2019
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:05
 

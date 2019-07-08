@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv_cpu
-Sun Jul  7 23:27:22 2019
+Tue Jul  9 00:26:12 2019
 Quartus Prime Version 18.1.1 Build 646 04/11/2019 SJ Lite Edition
 
 
@@ -49,7 +49,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jul  7 23:27:22 2019       ;
+; Analysis & Synthesis Status        ; Successful - Tue Jul  9 00:26:12 2019       ;
 ; Quartus Prime Version              ; 18.1.1 Build 646 04/11/2019 SJ Lite Edition ;
 ; Revision Name                      ; riscv_cpu                                   ;
 ; Top-level Entity Name              ; riscv_cpu                                   ;
@@ -364,7 +364,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port    ; Type  ; Severity ; Details                                                                                                                                                                             ;
 +---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; address ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (14 bits) it drives.  The 18 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; wren    ; Input ; Info     ; Stuck at VCC                                                                                                                                                                        ;
 +---------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -398,7 +397,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.1 Build 646 04/11/2019 SJ Lite Edition
-    Info: Processing started: Sun Jul  7 23:27:05 2019
+    Info: Processing started: Tue Jul  9 00:25:53 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv_cpu -c riscv_cpu
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -413,19 +412,19 @@ Warning (10199): Verilog HDL Case Statement warning at riscv_cpu.v(92): case ite
 Warning (10199): Verilog HDL Case Statement warning at riscv_cpu.v(93): case item expression never matches the case expression File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 93
 Warning (10199): Verilog HDL Case Statement warning at riscv_cpu.v(94): case item expression never matches the case expression File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 94
 Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(82): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 82
-Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(201): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 201
-Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(233): truncated value with size 20 to match size of target (12) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 233
-Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(245): truncated value with size 20 to match size of target (12) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 245
-Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(267): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 267
-Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(339): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 339
+Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(200): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 200
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(232): truncated value with size 20 to match size of target (12) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 232
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(244): truncated value with size 20 to match size of target (12) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 244
+Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(266): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 266
+Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(338): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 338
 Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(442): truncated value with size 32 to match size of target (1) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 442
 Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(444): truncated value with size 32 to match size of target (1) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 444
 Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(446): truncated value with size 32 to match size of target (1) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 446
 Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(448): truncated value with size 32 to match size of target (1) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 448
 Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(450): truncated value with size 32 to match size of target (1) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 450
 Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(440): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 440
-Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(464): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 464
-Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(483): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 483
+Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(465): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 465
+Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(484): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 484
 Warning (10270): Verilog HDL Case Statement warning at riscv_cpu.v(115): incomplete case statement has no default case item File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 115
 Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "load", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
 Warning (10240): Verilog HDL Always Construct warning at riscv_cpu.v(79): inferring latch(es) for variable "store", which holds its previous value in one or more paths through the always construct File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 79
@@ -654,9 +653,9 @@ Info (21057): Implemented 6 device resources after synthesis - the final resourc
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 4 output pins
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 111 warnings
-    Info: Peak virtual memory: 931 megabytes
-    Info: Processing ended: Sun Jul  7 23:27:22 2019
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:41
+    Info: Peak virtual memory: 935 megabytes
+    Info: Processing ended: Tue Jul  9 00:26:12 2019
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:43
 
 

@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/home/home/fpgaworkspace/riscv_cpu
 va_graycounter
-Z1 !s110 1562527686
+Z1 !s110 1562617854
 !i10b 1
 !s100 7RL@7]^Mkb[^0^A4A<DHg3
 I8DVQDIU=kGkckL7bCR]Z<0
@@ -23,7 +23,7 @@ Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1562527685.000000
+Z7 !s108 1562617853.000000
 Z8 !s107 /home/home/intelFPGA_lite/18.1/quartus/eda/sim_lib/altera_mf.v|
 Z9 !s90 -reportprogress|300|-work|./altera_mf_ver|/home/home/intelFPGA_lite/18.1/quartus/eda/sim_lib/altera_mf.v|
 !i113 1
@@ -240,7 +240,7 @@ R9
 R10
 R11
 valtaccumulate
-Z12 !s110 1562527685
+Z12 !s110 1562617853
 !i10b 1
 !s100 ]J^>>M@KIe6:;k?@cL6jK0
 IgFgS=6dJSOINWE0z?N]B<2
@@ -261,7 +261,7 @@ R9
 R10
 R11
 valtclklock
-R1
+R12
 !i10b 1
 !s100 dZP2fY7[X6OBenFPi2M3>2
 I?3_ngIiZE;l^`4]NFZ;nJ0
@@ -282,7 +282,7 @@ R9
 R10
 R11
 valtddio_bidir
-R1
+R12
 !i10b 1
 !s100 d6h;ie5E87J34ZiR_`WGP0
 I:cgSVOh7M0dh`M=mT;3[W2
@@ -303,7 +303,7 @@ R9
 R10
 R11
 valtddio_in
-R1
+R12
 !i10b 1
 !s100 RYI1C30fJj7N8Y0J5dRbG3
 I@V9:Mj4YiDcTa:CHT@Xk?2
@@ -324,7 +324,7 @@ R9
 R10
 R11
 valtddio_out
-R1
+R12
 !i10b 1
 !s100 S];mG5k@6gz9bKEQ>6@]V2
 IWoz[Ro:dMV?zhW>3<lje=2
@@ -345,7 +345,7 @@ R9
 R10
 R11
 valtdpram
-R1
+R12
 !i10b 1
 !s100 BE726jY[MoUWTU>>?R`hZ1
 I^[Pk@9SRDM4oWBzc0c2h13
@@ -516,7 +516,7 @@ R9
 R10
 R11
 valtfp_mult
-R1
+R12
 !i10b 1
 !s100 c9dLG_`KcV2Q;PQb:iUEk1
 IE3LJdR1_z6FkET]ni^:Tg2
@@ -600,7 +600,7 @@ R9
 R10
 R11
 valtmult_add
-R1
+R12
 !i10b 1
 !s100 <>@[FFHS;IjA6YnRoVfJm3
 If85:YPGo8[IdJ_`Y=5h8A3
@@ -726,7 +726,7 @@ R9
 R10
 R11
 valtsqrt
-R1
+R12
 !i10b 1
 !s100 a[5V9KX9=mLzMafI5YMk83
 ImM^eo2z2kmTZN7cH_V>:^3
@@ -789,7 +789,7 @@ R9
 R10
 R11
 valtsyncram
-R1
+R12
 !i10b 1
 !s100 K:Qc=Y0o3h>fB?4Q3W7c?1
 IlZ@Ez;UI6;Pz5LOHc>LO73

@@ -47,7 +47,7 @@ reg[31:0] storeloadaddr;
 
 
 //if load or store is active when adress musb be load or store adress
-assign address= !(store | load) ?pc:storeloadaddr;
+assign address= !(store | load) ?pc/4:storeloadaddr;
 assign wren=wr_enable;
 assign datawrite=datwr;
 
@@ -131,7 +131,7 @@ case(opcode)
 				
 			 
 				 registers[rd]={{20{imm[11]}},imm}+registers[rs1];
-				 pc=pc+1;
+				 pc=pc+4;
 				end
 				
 			
@@ -141,7 +141,7 @@ case(opcode)
 				begin
 			 
 				 registers[rd]=$signed(registers[rs1])<$signed({{20{imm[11]}},imm});
-				 pc=pc+1;
+				 pc=pc+4;
 
 				
 				end
@@ -151,7 +151,7 @@ case(opcode)
 			3'b011:
 			   begin
 				 registers[rd]=registers[rs1]<{{20{imm[11]}},imm};
-				 pc=pc+1;
+				 pc=pc+4;
 
 				
 				end
@@ -162,7 +162,7 @@ case(opcode)
 			
 		    	begin
 				 registers[rd]=registers[rs1] ^ {{20{imm[11]}},imm} ;
-				 pc=pc+1;
+				 pc=pc+4;
 
 				
 				end
@@ -172,7 +172,7 @@ case(opcode)
 				
 				begin
 				 registers[rd]=registers[rs1] | {{20{imm[11]}},imm} ;
-				 pc=pc+1;
+				 pc=pc+4;
 
 				
 				end
@@ -181,8 +181,7 @@ case(opcode)
 			3'b111:
 				begin
 				 registers[rd]=registers[rs1] & {{20{imm[11]}},imm} ;
-				 pc=pc+1;
-
+				 pc=pc+4;
 				
 				end
 			
@@ -191,7 +190,7 @@ case(opcode)
 			
 				begin
 				 registers[rd]=registers[rs1] << imm[4:0] ;
-				 pc=pc+1;
+				 pc=pc+4;
 
 				
 				end
@@ -203,7 +202,7 @@ case(opcode)
 				 1'b0:
 				   begin
 					  registers[rd]=registers[rs1] >> imm[4:0] ;
-					  pc=pc+1;
+					  pc=pc+4;
 					 
 					end
 					
@@ -212,7 +211,7 @@ case(opcode)
 					begin
 					 
 					  registers[rd]=registers[rs1] >>> imm[4:0] ;
-					  pc=pc+1;
+					  pc=pc+4;
 					 
 					end
 				 
@@ -232,7 +231,7 @@ case(opcode)
 		 rd=romline[11:7];
 		 imm=romline[31:12];
 		 registers[rd]=imm<<12;
-		 pc=pc+1;
+		 pc=pc+4;
 		 
 	end
 	
@@ -244,7 +243,7 @@ case(opcode)
 		rd=romline[11:7];
 		imm=romline[31:12];
 		registers[rd]=pc+(imm<<12);
-		pc=pc+1;
+		pc=pc+4;
 	
 	end
 	
@@ -270,7 +269,7 @@ case(opcode)
 				  
 				  begin
 				  registers[rd]=registers[rs1] + registers[rs2]  ;
-				  pc=pc+1;
+				  pc=pc+4;
 				  
 				  
 				  end
@@ -278,7 +277,7 @@ case(opcode)
 				  begin
 				   
 				  registers[rd]=registers[rs1] - registers[rs2]  ;
-				  pc=pc+1;
+				  pc=pc+4;
 				  
 				  
 				  
@@ -293,7 +292,7 @@ case(opcode)
 			    begin
 				   
 				  registers[rd]=registers[rs1]<< registers[rs2]  ;
-				  pc=pc+1;
+				  pc=pc+4;
 				  
 			  
 				 end
@@ -303,7 +302,7 @@ case(opcode)
 			     begin
 				   
 				  registers[rd]=$signed(registers[rs1]) < $signed(registers[rs2]);
-				  pc=pc+1;
+				  pc=pc+4;
 				  
 				  
 				  
@@ -316,7 +315,7 @@ case(opcode)
 				 begin
 				   
 				  registers[rd]=registers[rs1] < registers[rs2]  ;
-				  pc=pc+1;
+				  pc=pc+4;
 				  
 				  
 				  
@@ -327,7 +326,7 @@ case(opcode)
 				 begin
 				   
 				  registers[rd]=registers[rs1] ^ registers[rs2]  ;
-				  pc=pc+1;
+				  pc=pc+4;
 				  
 				  
 				  
@@ -344,7 +343,7 @@ case(opcode)
 				  
 				  begin
 				  registers[rd]=registers[rs1] >> registers[rs2]  ;
-				  pc=pc+1;
+				  pc=pc+4;
 				  
 				  
 				  end
@@ -354,7 +353,7 @@ case(opcode)
 				  begin
 				   
 				  registers[rd]=registers[rs1] >>> registers[rs2]  ;
-				  pc=pc+1;
+				  pc=pc+4;
 				  
 				  
 				  
@@ -369,7 +368,7 @@ case(opcode)
 			 begin
 				   
 				  registers[rd]=registers[rs1] | registers[rs2]  ;
-				  pc=pc+1;
+				  pc=pc+4;
 				  
 				  
 				  
@@ -380,7 +379,7 @@ case(opcode)
 			   begin
 				   
 				  registers[rd]=registers[rs1] & registers[rs2]  ;
-				  pc=pc+1;
+				  pc=pc+4;
 				  
 				  
 				  
@@ -401,10 +400,11 @@ case(opcode)
 	   begin
 		
 		//uj imm
-		imm20={romline[31],romline[19:12],romline[11],romline[30:21]};
+		imm20={romline[31],romline[19:12],romline[20],romline[30:21]};
 		rd=romline[11:7];
-		registers[rd]=pc+1;
-		pc=rd+({{11{imm20[19]}},imm20,1'b0});
+		registers[rd]=pc+4;
+		$display("%b",({{11{imm20[19]}},imm20,1'b0}));
+		pc=pc+({{11{imm20[19]}},imm20,1'b0});
 				  
 		
 		end
@@ -420,7 +420,7 @@ case(opcode)
 		 rs1=romline[19:15];
 		 rd=romline[11:7];
 		 imm=romline[31:20];
-		 registers[rd]=pc+1;
+		 registers[rd]=pc+4;
 		 pc=($signed(registers[rs1])+$signed({{20{imm[11]}},imm})) & 'hfffffffe;
 		
 		
@@ -436,7 +436,7 @@ case(opcode)
 		 rd=romline[11:7];
 		 imm=romline[31:20];
 		 storeloadaddr={{{20{imm[11]}}},imm}+rs1;
-		 pc=pc+1;
+		 pc=pc+4;
 	    case(func3)
 			 //LB
 			 3'b000:load=8;
@@ -459,7 +459,7 @@ case(opcode)
 		 rs2=romline[24:20];
 		 imm={romline[31:25],romline[11:7]};
 		 storeloadaddr={{{20{imm[11]}}},imm}+rs1;
-		 pc=pc+1;
+		 pc=pc+4;
 		 wr_enable=1;
 		 store=1;
 	   case(func3)
