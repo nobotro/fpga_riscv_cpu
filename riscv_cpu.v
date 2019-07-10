@@ -3,9 +3,12 @@
 
 module riscv_cpu(input clk,
 input reset,
-output[3:0] ledss
+output reg[3:0] ledss
 
 );
+
+reg memmapioclk=0;
+ 
 
 
 reg[3:0] leds;
@@ -47,9 +50,11 @@ reg[31:0] storeloadaddr;
 
 
 //if load or store is active when adress musb be load or store adress
-assign address= !(store | load) ?pc/4:storeloadaddr;
+//old format wihout ios //assign address= !(store | load) ?pc/4:storeloadaddr;
+assign address=memmapioclk ? memmapioaddress: (!(store | load) ?pc/4:storeloadaddr);
 assign wren=wr_enable;
 assign datawrite=datwr;
+reg[31:0] memmapioaddress;
 
 
 ramm ram(.address(address),
@@ -70,10 +75,25 @@ registers[i]=0;
 
 end
 
+always @(posedge clk)begin
+    memmapioclk<=~memmapioclk;  //divide 50 mhz to 2=25mhz
+	 //half clk used for vga,ps2 and leds control
+ 
+end
+
+always @(posedge memmapioclk)
+begin
+//io controls goes here
+ memmapioaddress=40;
+end
+
+ 
 
 always @(*)
 begin
 
+
+ledss=dataread;
 
 //if previous instruction was load data from memory
 if(load)

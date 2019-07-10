@@ -1,5 +1,5 @@
 Flow report for riscv_cpu
-Tue Jul  9 00:26:23 2019
+Wed Jul 10 09:07:47 2019
 Quartus Prime Version 18.1.1 Build 646 04/11/2019 SJ Lite Edition
 
 
@@ -41,20 +41,20 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Jul  9 00:26:23 2019       ;
+; Flow Status                        ; Flow Failed - Wed Jul 10 09:07:47 2019      ;
 ; Quartus Prime Version              ; 18.1.1 Build 646 04/11/2019 SJ Lite Edition ;
 ; Revision Name                      ; riscv_cpu                                   ;
 ; Top-level Entity Name              ; riscv_cpu                                   ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE6E22C8                                 ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 0 / 6,272 ( 0 % )                           ;
-;     Total combinational functions  ; 0 / 6,272 ( 0 % )                           ;
-;     Dedicated logic registers      ; 0 / 6,272 ( 0 % )                           ;
-; Total registers                    ; 0                                           ;
+; Total logic elements               ; 4,197 / 6,272 ( 67 % )                      ;
+;     Total combinational functions  ; 4,196 / 6,272 ( 67 % )                      ;
+;     Dedicated logic registers      ; 3 / 6,272 ( < 1 % )                         ;
+; Total registers                    ; 3                                           ;
 ; Total pins                         ; 6 / 92 ( 7 % )                              ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0 / 276,480 ( 0 % )                         ;
+; Total memory bits                  ; 384,000 / 276,480 ( 139 % )                 ;
 ; Embedded Multiplier 9-bit elements ; 0 / 30 ( 0 % )                              ;
 ; Total PLLs                         ; 0 / 2 ( 0 % )                               ;
 +------------------------------------+---------------------------------------------+
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/09/2019 00:25:54 ;
+; Start date & time ; 07/10/2019 09:07:00 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; riscv_cpu           ;
 +-------------------+---------------------+
@@ -76,7 +76,8 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 172310021459910.156261755408024        ; --            ; --          ; --                                ;
+; AUTO_RAM_RECOGNITION                ; Off                                    ; On            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 132098951318517.156273522005654        ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -102,12 +103,9 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:19     ; 1.0                     ; 887 MB              ; 00:00:43                           ;
-; Fitter               ; 00:00:04     ; 1.0                     ; 1196 MB             ; 00:00:05                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 794 MB              ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 773 MB              ; 00:00:02                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 1017 MB             ; 00:00:01                           ;
-; Total                ; 00:00:26     ; --                      ; --                  ; 00:00:52                           ;
+; Analysis & Synthesis ; 00:00:37     ; 1.0                     ; 937 MB              ; 00:01:00                           ;
+; Fitter               ; 00:00:08     ; 1.1                     ; 1127 MB             ; 00:00:09                           ;
+; Total                ; 00:00:45     ; --                      ; --                  ; 00:01:09                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -118,9 +116,6 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+---------------+---------------+----------------+
 ; Analysis & Synthesis ; nobotro-pc       ; Manjaro Linux ; Manjaro Linux ; x86_64         ;
 ; Fitter               ; nobotro-pc       ; Manjaro Linux ; Manjaro Linux ; x86_64         ;
-; Assembler            ; nobotro-pc       ; Manjaro Linux ; Manjaro Linux ; x86_64         ;
-; Timing Analyzer      ; nobotro-pc       ; Manjaro Linux ; Manjaro Linux ; x86_64         ;
-; EDA Netlist Writer   ; nobotro-pc       ; Manjaro Linux ; Manjaro Linux ; x86_64         ;
 +----------------------+------------------+---------------+---------------+----------------+
 
 
@@ -129,9 +124,6 @@ https://fpgasoftware.intel.com/eula.
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off riscv_cpu -c riscv_cpu
 quartus_fit --read_settings_files=off --write_settings_files=off riscv_cpu -c riscv_cpu
-quartus_asm --read_settings_files=off --write_settings_files=off riscv_cpu -c riscv_cpu
-quartus_sta riscv_cpu -c riscv_cpu
-quartus_eda --read_settings_files=off --write_settings_files=off riscv_cpu -c riscv_cpu
 
 
 

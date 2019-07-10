@@ -2,7 +2,28 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : []
+			"pins" : [
+				{
+					"name" : "ledss[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ledss[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ledss[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ledss[3]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
 		}
 	]
 }
