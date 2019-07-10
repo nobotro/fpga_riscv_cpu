@@ -46,16 +46,17 @@ reg[31:0] datwr;
 reg wr_enable;
 reg store=0;
 reg load=0;
+wire io;
 reg[31:0] storeloadaddr;
 
+reg[31:0] memmapioaddress;
 
 //if load or store is active when adress musb be load or store adress
 //old format wihout ios //assign address= !(store | load) ?pc/4:storeloadaddr;
-assign address=memmapioclk ? memmapioaddress: (!(store | load) ?pc/4:storeloadaddr);
+assign address=memmapioclk ? memmapioaddress: (!(store | load) ?pc/4:storeloadaddr/4);
 assign wren=wr_enable;
 assign datawrite=datwr;
-reg[31:0] memmapioaddress;
-
+assign io=memmapioclk==0;
 
 ramm ram(.address(address),
 			.clock(clk),
@@ -85,6 +86,7 @@ always @(posedge memmapioclk)
 begin
 //io controls goes here
  memmapioaddress=40;
+ 
 end
 
  
@@ -92,11 +94,13 @@ end
 always @(*)
 begin
 
-
-ledss=dataread;
-
+if(io)
+	begin
+	ledss=dataread;
+	 
+end
 //if previous instruction was load data from memory
-if(load)
+else if(load)
 	begin
 	   
 		case(load)
