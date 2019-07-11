@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/home/home/fpgaworkspace/riscv_cpu
 va_graycounter
-Z1 !s110 1562786962
+Z1 !s110 1562871550
 !i10b 1
 !s100 7RL@7]^Mkb[^0^A4A<DHg3
 I8DVQDIU=kGkckL7bCR]Z<0
@@ -23,7 +23,7 @@ Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1562786961.000000
+Z7 !s108 1562871549.000000
 Z8 !s107 /home/home/intelFPGA_lite/18.1/quartus/eda/sim_lib/altera_mf.v|
 Z9 !s90 -reportprogress|300|-work|./altera_mf_ver|/home/home/intelFPGA_lite/18.1/quartus/eda/sim_lib/altera_mf.v|
 !i113 1
@@ -240,7 +240,7 @@ R9
 R10
 R11
 valtaccumulate
-Z12 !s110 1562786961
+R1
 !i10b 1
 !s100 ]J^>>M@KIe6:;k?@cL6jK0
 IgFgS=6dJSOINWE0z?N]B<2
@@ -366,7 +366,7 @@ R9
 R10
 R11
 vALTERA_DEVICE_FAMILIES
-R12
+Z12 !s110 1562871549
 !i10b 1
 !s100 LWTeFO?a^6l3ea7?@d<9?0
 IU5boFXe_J8aaCK@YLS]6i3
@@ -474,7 +474,7 @@ R9
 R10
 R11
 valtera_syncram_derived
-R12
+R1
 !i10b 1
 !s100 hWa=4zA9QWk>DjHUA9O_03
 I9dH:eCfnY@49WkKQU;l>M2
@@ -495,7 +495,7 @@ R9
 R10
 R11
 valtera_syncram_derived_forwarding_logic
-R12
+R1
 !i10b 1
 !s100 JdkVPmcjH;EBkEX<QBT7e1
 InH4mCioj5fe4[2S3dc;BS1
@@ -579,7 +579,7 @@ R9
 R10
 R11
 valtmult_accum
-R12
+R1
 !i10b 1
 !s100 DiYBWLQQ0V7IkzHZ9PD3z0
 I56Rcdi5VOF1P;0z;z:[JK1
@@ -978,7 +978,7 @@ R9
 R10
 R11
 vdcfifo
-R12
+R1
 !i10b 1
 !s100 >_QjdB6M?Fk4HL;6^^<ME2
 II_dO?oY0gB4WWcCVa]6^h0
@@ -999,7 +999,7 @@ R9
 R10
 R11
 vdcfifo_async
-R12
+R1
 !i10b 1
 !s100 d5P=n]IHmnOZ9hZz[fWdh1
 IOUbNO]NoROX`CI2DjFgID2
@@ -1020,7 +1020,7 @@ R9
 R10
 R11
 vdcfifo_dffpipe
-R12
+R1
 !i10b 1
 !s100 G6:Pz;PaegaLY=LbNb1aj2
 IgK;Eog3MbiWJU[f[H]lM>1
@@ -1041,7 +1041,7 @@ R9
 R10
 R11
 vdcfifo_fefifo
-R12
+R1
 !i10b 1
 !s100 [S5CZc=BlVazbZ1>iU@^:0
 IU0koKHE0`f2EEJjUcYFki2
@@ -1062,7 +1062,7 @@ R9
 R10
 R11
 vdcfifo_low_latency
-R12
+R1
 !i10b 1
 !s100 IQ4BkE1m]LoK6d_TWCG603
 I@?c;V6D[@?IVXe44<]Vfo2
@@ -1083,7 +1083,7 @@ R9
 R10
 R11
 vdcfifo_mixed_widths
-R12
+R1
 !i10b 1
 !s100 CJX4jRYM4PgegWl0iQXAi2
 ImR1:4W:Ro<kUnCIjhjnm@2
@@ -1104,7 +1104,7 @@ R9
 R10
 R11
 vdcfifo_sync
-R12
+R1
 !i10b 1
 !s100 Pbi<kMS?7L<S353V86kK^1
 IazRhnLSIOIBS_kz:5HMz31
@@ -1188,7 +1188,7 @@ R9
 R10
 R11
 vflexible_lvds_tx
-R12
+R1
 !i10b 1
 !s100 jTcRG:ZaXjOM?F8VcYB2<2
 InNJz:3<2aZO[7mI;lZDH[0
@@ -1617,7 +1617,7 @@ R9
 R10
 R11
 vstratix_tx_outclk
-R12
+R1
 !i10b 1
 !s100 4Ui3ElJ34X8<LVV9ef0GJ3
 I:Gh]Nd>g@z5X:]5zQhGAn2
@@ -1680,7 +1680,7 @@ R9
 R10
 R11
 vstratixii_tx_outclk
-R12
+R1
 !i10b 1
 !s100 5AcP::Tlc9]5j7hkY;D4i0
 IWUFf8PNSOQ@MJ=2@6e]3c2
@@ -1764,7 +1764,7 @@ R9
 R10
 R11
 vstratixv_local_clk_divider
-R12
+R1
 !i10b 1
 !s100 CLJ3F]CIGoaoiYzA7@];A1
 IRKHUBjg08PRHbd8of=nh51

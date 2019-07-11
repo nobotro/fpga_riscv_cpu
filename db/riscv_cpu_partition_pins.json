@@ -4,23 +4,23 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "ledss[0]",
-					"strict" : false
-				},
-				{
-					"name" : "ledss[1]",
-					"strict" : false
-				},
-				{
-					"name" : "ledss[2]",
-					"strict" : false
-				},
-				{
-					"name" : "ledss[3]",
-					"strict" : false
-				},
-				{
 					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
 					"strict" : false
 				}
 			]
