@@ -7,11 +7,14 @@ output reg[3:0] ledss
 
 );
 
-reg memmapioclk=0;
  
+ 
+reg  socorcpu=0;//true is soc
 
+reg[31:0] socdata;
+reg[31:0] socaddress=0;
+reg socload=0;
 
-reg[3:0] leds;
 reg[31:0] romline;
 
 reg[31:0] registers[0:31];//cpu registers
@@ -37,7 +40,8 @@ reg[19:0] imm20;
 
  
 wire[31:0] address;
-wire[31:0] dataread;
+ 
+
 wire[31:0] datawrite;
 wire wren;
 
@@ -46,19 +50,12 @@ reg[31:0] datwr;
 reg wr_enable;
 reg store=0;
 reg load=0;
-wire io;
-reg[31:0] storeloadaddr;
+ reg[31:0] storeloadaddr;
 
 reg[31:0] memmapioaddress;
 
-//if load or store is active when adress musb be load or store adress
-assign address= !(store | load) ?pc/4:storeloadaddr/4;
-//assign address=memmapioclk ? memmapioaddress: (!(store | load) ?pc/4:storeloadaddr/4);
-assign wren=wr_enable;
-assign datawrite=datwr;
-assign io=memmapioclk==0;
-
-ramm ram(.address(address),
+wire[31:0] dataread;
+ ramm ram(.address(address),
 			.clock(clk),
 			.data(datawrite),
 			.wren(wren),
@@ -75,24 +72,51 @@ registers[i]=0;
 
 
 end
-
-//always @(posedge clk)begin
-//    memmapioclk<=~memmapioclk;  //divide 50 mhz to 2=25mhz
-//	 //half clk used for vga,ps2 and leds control
-// 
-//end
-//
-//always @(posedge memmapioclk)
-//begin
-////io controls goes here
-// memmapioaddress=40;
-// 
-//end
-
  
+//if load or store is active when adress musb be load or store adress
+//assign address= !(store | load) ?pc/4:storeloadaddr;
+assign address=socload && socorcpu ? socaddress: (!(store | load) ?pc/4:storeloadaddr);
 
+assign wren=wr_enable;
+assign datawrite=datwr;
+always@(posedge clk)
+begin
+socorcpu=~socorcpu;
+
+end
+ 
 always @(*)
 begin
+ 
+ //we have 2 global cycle , 1 for cpu and 1 for io
+ 
+ 
+ //it is ios cycle
+ //ios cycle has 2 stage set adress and load data from adress
+ //
+if(socorcpu)
+begin
+
+	//it is first stage,save prev cpu 
+	if(!socload)
+	begin
+
+		 
+		socaddress=40;
+		socload=1;
+
+	end
+	else if (socload)
+	begin
+		ledss=dataread;
+		socload=0;
+	end
+
+ 
+end
+
+
+else begin
 
 if(load)
 	begin
@@ -472,7 +496,7 @@ case(opcode)
 		 
 //Store Instructions
    7'b0100011:begin
-	
+	    
 		 rs1=romline[19:15];
 		 rs2=romline[24:20];
 		 imm={romline[31:25],romline[11:7]};
@@ -567,8 +591,7 @@ endcase
 end
 
 end
-
+end
 endmodule
-
 
 
