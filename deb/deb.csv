@@ -1,0 +1,18 @@
+# system info deb on 2019.07.23.00:56:53
+system_info:
+name,value
+DEVICE,EP4CE6E22C8
+DEVICE_FAMILY,Cyclone IV E
+GENERATION_ID,1563829013
+#
+#
+# Files generated for deb on 2019.07.23.00:56:53
+files:
+filepath,kind,attributes,module,is_top
+simulation/deb.v,VERILOG,,deb,true
+simulation/submodules/altsource_probe.v,VERILOG,,altsource_probe,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+deb.in_system_sources_probes_0,altsource_probe

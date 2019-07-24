@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at riscv_cpu.v(89): always construct contains both blocking and non-blocking assignments File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 89

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="simulation/submodules/altsource_probe.v"
+   type="VERILOG"
+   library="in_system_sources_probes_0" />
+ <file path="simulation/deb.v" type="VERILOG" />
+ <topLevel name="deb" />
+ <deviceFamily name="cycloneive" />
+</simPackage>

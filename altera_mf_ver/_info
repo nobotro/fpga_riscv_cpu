@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/home/home/fpgaworkspace/riscv_cpu
 va_graycounter
-Z1 !s110 1563018323
+Z1 !s110 1563830480
 !i10b 1
 !s100 7RL@7]^Mkb[^0^A4A<DHg3
 I8DVQDIU=kGkckL7bCR]Z<0
@@ -23,7 +23,7 @@ Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1563018322.000000
+Z7 !s108 1563830479.000000
 Z8 !s107 /home/home/intelFPGA_lite/18.1/quartus/eda/sim_lib/altera_mf.v|
 Z9 !s90 -reportprogress|300|-work|./altera_mf_ver|/home/home/intelFPGA_lite/18.1/quartus/eda/sim_lib/altera_mf.v|
 !i113 1
@@ -366,7 +366,7 @@ R9
 R10
 R11
 vALTERA_DEVICE_FAMILIES
-Z12 !s110 1563018322
+Z12 !s110 1563830479
 !i10b 1
 !s100 LWTeFO?a^6l3ea7?@d<9?0
 IU5boFXe_J8aaCK@YLS]6i3
@@ -1405,7 +1405,7 @@ R10
 R11
 n@m@f_stratix_pll
 vMF_stratixii_pll
-R1
+R12
 !i10b 1
 !s100 m<j8S?b80d7m:cRfTMSCR0
 IVR0j@XhZHmPLPBeNGI>nI0
@@ -1848,7 +1848,7 @@ R9
 R10
 R11
 vttn_m_cntr
-R1
+R12
 !i10b 1
 !s100 ;3NK]8TY<L]eQ[IJY0gF32
 IX>iNC6C;N@eCTGglO?SnM0
@@ -1869,7 +1869,7 @@ R9
 R10
 R11
 vttn_n_cntr
-R1
+R12
 !i10b 1
 !s100 7nCN0ZiXcEmbIBT5Y>_4a1
 I<eB;8=F34@c=0^:SIjjdT0
@@ -1890,7 +1890,7 @@ R9
 R10
 R11
 vttn_scale_cntr
-R1
+R12
 !i10b 1
 !s100 _jZZ0@3D`H8_VG516F<O_0
 IE]U[7_gQ;gloRmnDhDDIh3
