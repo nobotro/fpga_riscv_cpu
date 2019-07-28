@@ -1,10 +1,10 @@
 Info: Read atom netlist
 Info: Directory /home/home/fpgaworkspace/riscv_cpu/board/fpgaxchange exists --if you continue the contents of the directory may be overwritten
 Info: Generating FPGA Xchange file /home/home/fpgaworkspace/riscv_cpu/board/fpgaxchange/riscv_cpu.fx
-Info: Atom 4707 (reset) has key 'input,2.5 V,--,--,Off,--,0,--,0,--,--'
-Info: Atom 4709 (ledss[0]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
-Info: Atom 4711 (ledss[1]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
-Info: Atom 4713 (ledss[2]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
-Info: Atom 4715 (ledss[3]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
-Info: Atom 4717 (clk) has key 'input,2.5 V,--,--,Off,--,0,--,0,--,--'
+Info: Atom 4711 (reset) has key 'input,2.5 V,--,--,Off,--,0,--,0,--,--'
+Info: Atom 4713 (ledss[0]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 4715 (ledss[1]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 4717 (ledss[2]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 4719 (ledss[3]) has key 'output,2.5 V,Default,Series 50 Ohm without Calibration,--,FAST,0,--,0,--,--'
+Info: Atom 4721 (clk) has key 'input,2.5 V,--,--,Off,--,0,--,0,--,--'
 Info: FPGA Xchange file /home/home/fpgaworkspace/riscv_cpu/board/fpgaxchange/riscv_cpu.fx generated successfully

@@ -46,8 +46,11 @@ reg store=0;
 reg[10:0] load=0;
  reg[31:0] storeloadaddr=0;
 
- 
+wire[2:0] func3;
+wire[6:0] func7;
 
+
+reg do_cond_branch=0;
 integer i;
 initial
 begin
@@ -64,7 +67,7 @@ end
 
 
  ramm ram(.address(address),
-			.clock(clk),
+			.clock(clk2),
 			.data(datwr),
 			.wren(wr_enable),
 			.q(romline)
@@ -85,8 +88,19 @@ end
  assign imm=romline[31:20];
  assign imm20={romline[31],romline[19:12],romline[20],romline[30:21]};
  assign immlui=romline[31:12];
- 
+assign func3=romline[14:12];
+assign func7=romline[31:25];
+
+
+
+reg clk2=0;
 always @(negedge clk)
+begin
+clk2<=!clk2;
+
+
+end
+always @(negedge clk2)
 begin
  
  
@@ -101,6 +115,7 @@ if(load)
 				32:registers[rd_load]<=romline;
 				81:registers[rd_load]<=romline&'hff;
 				161:registers[rd_load]<=romline&'hffff;
+				default:i<=0;
 					 
 		endcase
 		load<=0;
@@ -126,7 +141,7 @@ case(romline[6:0])
       
    //Integer Register-Immediate Instructions
 	7'b0010011:begin
-			 case(romline[14:12])
+			 case(func3)
 					//ADDI
 					3'b000:registers[rd]<={{20{imm[11]}},imm}+registers[rs1];
 					//SLTI
@@ -145,11 +160,12 @@ case(romline[6:0])
 					3'b101:
 						case(imm[11:7])
 							 //SRLI
-							 1'b0:registers[rd]<=registers[rs1] >> imm[4:0] ;
+							 7'b0000000:registers[rd]<=registers[rs1] >> imm[4:0] ;
 						  	 //SRAI
-							 7'b01000:registers[rd]<=registers[rs1] >>> imm[4:0] ;
+							 7'b0001000:registers[rd]<=registers[rs1] >>> imm[4:0] ;
+							 default:i<=0;
 						endcase
-					
+			 default:i<=0;
 			 endcase
 			 pc<=pc+4;
 		
@@ -173,18 +189,19 @@ case(romline[6:0])
 	//Integer Register-Register Operations
 	7'b0110011:begin
 	 
-		 case(romline[14:12])
+		 case(func3)
 		 	
 			//ADD,SUB
 			3'b000:
-				  case(romline[31:25])	
-						1'b0:registers[rd]<=registers[rs1] + registers[rs2]  ;
-						7'b0100000:registers[rd]<=registers[rs1] - registers[rs2]  ;				  
+				  case(func7)	
+						7'b0000000:registers[rd]<=registers[rs1] + registers[rs2]  ;
+						7'b0100000:registers[rd]<=registers[rs1] - registers[rs2]  ;	
+	                default:i<=0;					
 				  endcase
 			
 			//SLL
 			3'b001:registers[rd]<=registers[rs1] << registers[rs2]  ;
-			//SLT
+		//SLT
 			3'b010:registers[rd]<=$signed(registers[rs1]) < $signed(registers[rs2]);
 			//SLTU
 			3'b011:registers[rd]<=registers[rs1] < registers[rs2]  ;
@@ -192,20 +209,20 @@ case(romline[6:0])
 			3'b100:registers[rd]<=registers[rs1] ^ registers[rs2]  ;
 			//SRL,SRA 
 			3'b101:
-				 case(romline[31:25])
+				 case(func7)
 			
 					//SRL
-					1'b0:registers[rd]<=registers[rs1] >> registers[rs2]  ;
+					7'b0000000:registers[rd]<=registers[rs1] >> registers[rs2]  ;
 					//SRA
 					7'b0100000:registers[rd]<=registers[rs1] >>> registers[rs2]  ;
-				 
+				 default:i<=0;
 			    endcase
-			
-			//OR
-			3'b110:registers[rd]<=registers[rs1] | registers[rs2]  ;
-			//AND
-			3'b111:registers[rd]<=registers[rs1] & registers[rs2]  ;
-		
+//			
+ 	//OR
+ 		3'b110:registers[rd]<=registers[rs1] | registers[rs2]  ;
+//			//AND
+ 		3'b111:registers[rd]<=registers[rs1] & registers[rs2]  ;
+			default:i<=0;
 		
 		endcase
 		
@@ -240,7 +257,7 @@ case(romline[6:0])
 	7'b0000011:begin
 			 rd_load<=romline[11:7];
 			 storeloadaddr<={{{20{imm[11]}}},imm}+registers[rs1];
-			 case(romline[14:12])
+			 case(func3)
 				 //LB
 				 3'b000:load<=8;
 				 //LH		 
@@ -251,6 +268,7 @@ case(romline[6:0])
 				 3'b100:load<=81;
 				 //LHU
 				 3'b101:load<=161;		  	 
+				 default:i<=0;
 			 endcase
 	    end
 		 
@@ -261,14 +279,14 @@ case(romline[6:0])
 			 storeloadaddr<={{{20{imms[11]}}},imms}+registers[rs1];
 			 wr_enable<=1;
 			 store<=1;
-				case(romline[14:12])
+				case(func3)
 				 //SB
 				 3'b000:datwr<=registers[rs2]&'hff;
 				 //SH
 				 3'b001:datwr<=registers[rs2]&'hffff;
 				 //SW
 				 3'b010:datwr<=registers[rs2];
-				
+				default:i<=0;
 				endcase
 		end
    
@@ -276,10 +294,10 @@ case(romline[6:0])
 	
   //Conditional Branches   
 	7'b1100011:begin 
-	    case(romline[14:12])
+	    case(func3)
 		 
 		
-		 //BGE
+	  //BGE
 		 3'b101: 
 					if($signed(registers[rs1])>=$signed(registers[rs2]))
 						 pc<=pc+{{19{immc[11]}},immc,1'b0};
@@ -300,7 +318,7 @@ case(romline[6:0])
 		 //BLT
 		 3'b100:
 					if($signed(registers[rs1])<$signed(registers[rs2]))
-		             pc=pc+{{19{imm[11]}},imm,1'b0};
+		             pc<=pc+{{19{imm[11]}},imm,1'b0};
 					else pc<=pc+4;
 		 
 		 //BLTU
@@ -312,18 +330,22 @@ case(romline[6:0])
 		 //BGEU
 		 3'b111:
 					if(registers[rs1]>=registers[rs2])
-		            pc=pc+{{19{imm[11]}},imm,1'b0};
+		            pc<=pc+{{19{imm[11]}},imm,1'b0};
 					else pc<=pc+4;
 		 
 		 
-		
+		 
+		 
+		default:i<=0;
 		 endcase
+		 
+		 
 				 	 
 		 end 
 		 
 
 
-
+default:i<=0;
 endcase
 
 
@@ -334,4 +356,3 @@ end
 end
  
 endmodule
-

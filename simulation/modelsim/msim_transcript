@@ -10,23 +10,23 @@
 # 
 # vlog -vlog01compat -work work +incdir+/home/home/fpgaworkspace/riscv_cpu {/home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:21:13 on Jul 23,2019
+# Start time: 23:49:11 on Jul 26,2019
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/home/fpgaworkspace/riscv_cpu" /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v 
 # -- Compiling module riscv_cpu
 # 
 # Top level modules:
 # 	riscv_cpu
-# End time: 01:21:13 on Jul 23,2019, Elapsed time: 0:00:00
+# End time: 23:49:11 on Jul 26,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work work +incdir+/home/home/fpgaworkspace/riscv_cpu {/home/home/fpgaworkspace/riscv_cpu/ramm.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:21:13 on Jul 23,2019
+# Start time: 23:49:11 on Jul 26,2019
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+/home/home/fpgaworkspace/riscv_cpu" /home/home/fpgaworkspace/riscv_cpu/ramm.v 
 # -- Compiling module ramm
 # 
 # Top level modules:
 # 	ramm
-# End time: 01:21:14 on Jul 23,2019, Elapsed time: 0:00:01
+# End time: 23:49:11 on Jul 26,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # 
@@ -45,7 +45,7 @@ do /home/home/fpgaworkspace/riscv_cpu/simulation/modelsim/sc.tcl
 # Modifying /home/home/intelFPGA/18.1/modelsim_ase/linuxaloem/../modelsim.ini
 # Compiling library
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:21:19 on Jul 23,2019
+# Start time: 23:49:21 on Jul 26,2019
 # vlog -reportprogress 300 -work ./altera_mf_ver /home/home/intelFPGA_lite/18.1/quartus/eda/sim_lib/altera_mf.v 
 # -- Compiling module lcell
 # -- Compiling module ALTERA_MF_MEMORY_INITIALIZATION
@@ -175,49 +175,36 @@ do /home/home/fpgaworkspace/riscv_cpu/simulation/modelsim/sc.tcl
 # 	alt_fault_injection
 # 	sld_virtual_jtag_basic
 # 	altsource_probe
-# End time: 01:21:20 on Jul 23,2019, Elapsed time: 0:00:01
+# End time: 23:49:22 on Jul 26,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Compiling modules
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:21:20 on Jul 23,2019
+# Start time: 23:49:22 on Jul 26,2019
 # vlog -reportprogress 300 -work ./work riscv_cpu.v 
 # -- Compiling module riscv_cpu
 # 
 # Top level modules:
 # 	riscv_cpu
-# End time: 01:21:20 on Jul 23,2019, Elapsed time: 0:00:00
+# End time: 23:49:22 on Jul 26,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 01:21:20 on Jul 23,2019
+# Start time: 23:49:22 on Jul 26,2019
 # vlog -reportprogress 300 -work ./work ramm.v 
 # -- Compiling module ramm
 # 
 # Top level modules:
 # 	ramm
-# End time: 01:21:20 on Jul 23,2019, Elapsed time: 0:00:00
+# End time: 23:49:22 on Jul 26,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Load/Simulate the design
 # vsim -L altera_mf_ver riscv_cpu -t ns 
-# Start time: 01:21:20 on Jul 23,2019
+# Start time: 23:49:22 on Jul 26,2019
 # Loading work.riscv_cpu
 # Loading work.ramm
 # Loading altera_mf_ver.altsyncram
 # Loading altera_mf_ver.altsyncram_body
 # Loading altera_mf_ver.ALTERA_DEVICE_FAMILIES
 # Loading altera_mf_ver.ALTERA_MF_MEMORY_INITIALIZATION
-# ** Warning: (vsim-3015) riscv_cpu.v(64): [PCDPC] - Port size (12) does not match connection size (32) for port 'address'. The port definition is at: ramm.v(41).
+# ** Warning: (vsim-3015) riscv_cpu.v(69): [PCDPC] - Port size (12) does not match connection size (32) for port 'address'. The port definition is at: ramm.v(41).
 #    Time: 0 ns  Iteration: 0  Instance: /riscv_cpu/ram File: ramm.v
 # A bookmarks file was found in the current directory with 1 bookmark
-# Bookmark(s) were restored for window "Source"
-# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
-# ** Warning: (vsim-3116) Problem reading symbols from /usr/lib32/libpthread.so.0 : module was loaded at an absolute address.
-# ** Warning: (vsim-3116) Problem reading symbols from /usr/lib32/librt.so.1 : module was loaded at an absolute address.
-# ** Warning: (vsim-3116) Problem reading symbols from /usr/lib32/libdl.so.2 : module was loaded at an absolute address.
-# ** Warning: (vsim-3116) Problem reading symbols from /usr/lib32/libm.so.6 : module was loaded at an absolute address.
-# ** Warning: (vsim-3116) Problem reading symbols from /usr/lib32/libc.so.6 : module was loaded at an absolute address.
-# ** Warning: (vsim-3116) Problem reading symbols from /lib/ld-linux.so.2 : module was loaded at an absolute address.
-# ** Warning: (vsim-3116) Problem reading symbols from /usr/lib32/libnss_files.so.2 : module was loaded at an absolute address.
-# Break in Module riscv_cpu at riscv_cpu.v line 198
-step -over
-step -over
-step -over

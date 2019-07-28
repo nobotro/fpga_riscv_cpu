@@ -9,46 +9,46 @@ z2
 cModel Technology
 Z0 d/home/home/fpgaworkspace/riscv_cpu/simulation/modelsim
 vramm
-!s110 1563830474
+Z1 !s110 1564170551
 !i10b 1
 !s100 PO[U;C_2e1=V3=ha91NFD2
 IFF]X`^2g2hoQ@c7TX9XWl3
-Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1563723955
+w1564153750
 8/home/home/fpgaworkspace/riscv_cpu/ramm.v
 F/home/home/fpgaworkspace/riscv_cpu/ramm.v
 L0 40
-Z2 OV;L;10.5b;63
+Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z3 !s108 1563830473.000000
+Z4 !s108 1564170551.000000
 !s107 /home/home/fpgaworkspace/riscv_cpu/ramm.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/home/fpgaworkspace/riscv_cpu|/home/home/fpgaworkspace/riscv_cpu/ramm.v|
 !i113 1
-Z4 o-vlog01compat -work work
-Z5 !s92 -vlog01compat -work work +incdir+/home/home/fpgaworkspace/riscv_cpu
-Z6 tCvgOpt 0
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+/home/home/fpgaworkspace/riscv_cpu
+Z7 tCvgOpt 0
 vriscv_cpu
-!s110 1563830473
-!i10b 1
-!s100 Ak^>Az5a8_kB=`AUDOX`B3
-IaMloIh0A0oKDCoi7SiJm23
 R1
+!i10b 1
+!s100 ^mj^e<do<l?5JF1nj2K:91
+I7>hS<93:11lLee<zXB4nD0
+R2
 R0
-w1563828446
+w1564170427
 8/home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v
 F/home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v
 L0 4
-R2
+R3
 r1
 !s85 0
 31
-R3
+R4
 !s107 /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+/home/home/fpgaworkspace/riscv_cpu|/home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v|
 !i113 1
-R4
 R5
 R6
+R7
