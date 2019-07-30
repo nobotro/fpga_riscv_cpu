@@ -10,21 +10,10 @@ output reg[3:0] digclk=4'b0000
 );
 
  
- 
-
 wire[31:0] romline;
-
 reg[31:0] registers[0:31];//cpu registers
-
-
 reg [31:0] pc=0;//program counter
-//
 reg [6:0] opcode;
-//reg [5] rs1;
-//reg [5] rd;
-
-
- 
 wire[11:0] imm;  
 wire[11:0] imms; 
 wire[11:0] immc; 
@@ -36,26 +25,20 @@ wire[4:0] rs2;
 wire[7:0] tmpof8;
 wire[15:0] tmpof16;
 wire[19:0] imm20;
-
- reg clk2=0;
-
+reg clk2=0;
 wire[31:0] address;
- 
-
- 
 reg[31:0] datwr=0;
 wire wr_enable;
 reg store=0;
 reg[10:0] load=0;
- reg[31:0] storeloadaddr=0;
-
+reg[31:0] storeloadaddr=0;
 wire[2:0] func3;
 wire[6:0] func7;
 reg[2:0] iosclk=0;
 reg [7:0] digsegmap[0:15];
 
 
- integer i;
+integer i;
 initial
 begin
    digsegmap[0] <= 8'hc0; //"0"
@@ -96,17 +79,17 @@ end
  
  
  
- assign rd=romline[11:7];
- assign tmpof8=romline&'hff;
- assign tmpof16=romline&'hffff;
- assign address=iosclk ? 32 : (load || store ? storeloadaddr : pc>>>2);
- assign rs1=romline[19:15];
- assign rs2=romline[24:20];
- assign imms={romline[31:25],romline[11:7]};
- assign immc={romline[31],romline[7],romline[30:25],romline[11:8]};
- assign imm=romline[31:20];
- assign imm20={romline[31],romline[19:12],romline[20],romline[30:21]};
- assign immlui=romline[31:12];
+assign rd=romline[11:7];
+assign tmpof8=romline&'hff;
+assign tmpof16=romline&'hffff;
+assign address=iosclk ? 32 : (load || store ? storeloadaddr : pc>>>2);
+assign rs1=romline[19:15];
+assign rs2=romline[24:20];
+assign imms={romline[31:25],romline[11:7]};
+assign immc={romline[31],romline[7],romline[30:25],romline[11:8]};
+assign imm=romline[31:20];
+assign imm20={romline[31],romline[19:12],romline[20],romline[30:21]};
+assign immlui=romline[31:12];
 assign func3=romline[14:12];
 assign func7=romline[31:25];
 assign wr_enable=iosclk? 0 : store;
@@ -124,16 +107,16 @@ begin
  
 
 if(counter[19])
- iosclk<=2;
+ 	iosclk<=2;
 else if(iosclk==2)
-  iosclk<=iosclk-1;
+  	iosclk<=iosclk-1;
 else if(iosclk==1)begin
- ledss<=romline;
- sg<=digsegmap[romline];
- iosclk<=iosclk-1;
+	 ledss<=romline;
+	 sg<=digsegmap[romline];
+	 iosclk<=iosclk-1;
  end
  
- else if(load)
+else if(load)
 	begin
 	   
 		case(load)
@@ -216,7 +199,7 @@ case(romline[6:0])
 	//Integer Register-Register Operations
 	7'b0110011:begin
 	 
-		 case(func3)
+		case(func3)
 		 	
 			//ADD,SUB
 			3'b000:
@@ -228,7 +211,7 @@ case(romline[6:0])
 			
 			//SLL
 			3'b001:registers[rd]<=registers[rs1] << registers[rs2]  ;
-		//SLT
+		    //SLT
 			3'b010:registers[rd]<=$signed(registers[rs1]) < $signed(registers[rs2]);
 			//SLTU
 			3'b011:registers[rd]<=registers[rs1] < registers[rs2]  ;
@@ -243,14 +226,13 @@ case(romline[6:0])
 					//SRA
 					7'b0100000:registers[rd]<=registers[rs1] >>> registers[rs2]  ;
 				 default:i<=0;
-			    endcase
-//			
- 	//OR
- 		3'b110:registers[rd]<=registers[rs1] | registers[rs2]  ;
-//			//AND
- 		3'b111:registers[rd]<=registers[rs1] & registers[rs2]  ;
-			default:i<=0;
-		
+			    endcase	
+	 	    //OR
+	 		3'b110:registers[rd]<=registers[rs1] | registers[rs2]  ;
+	         //AND
+	 		3'b111:registers[rd]<=registers[rs1] & registers[rs2]  ;
+				default:i<=0;
+			
 		endcase
 		
 		 pc<=pc+4;
@@ -324,7 +306,7 @@ case(romline[6:0])
 	    case(func3)
 		 
 		
-	  //BGE
+	     //BGE
 		 3'b101: 
 					if($signed(registers[rs1])>=$signed(registers[rs2]))
 						 pc<=pc+{{19{immc[11]}},immc,1'b0};
