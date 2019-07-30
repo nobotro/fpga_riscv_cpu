@@ -3,7 +3,9 @@
 
 module riscv_cpu(input clk,
 input reset,
-output reg[3:0] ledss
+output reg[3:0] ledss,
+output reg[7:0] sg,
+output reg[3:0] digclk=4'b0000
 
 );
 
@@ -35,26 +37,43 @@ wire[7:0] tmpof8;
 wire[15:0] tmpof16;
 wire[19:0] imm20;
 
- 
+ reg clk2=0;
+
 wire[31:0] address;
  
 
  
 reg[31:0] datwr=0;
-reg wr_enable=0;
+wire wr_enable;
 reg store=0;
 reg[10:0] load=0;
  reg[31:0] storeloadaddr=0;
 
 wire[2:0] func3;
 wire[6:0] func7;
+reg[2:0] iosclk=0;
+reg [7:0] digsegmap[0:15];
 
 
-reg do_cond_branch=0;
-integer i;
+ integer i;
 initial
 begin
-
+   digsegmap[0] <= 8'hc0; //"0"
+	digsegmap[1] <= 8'hf9; //"1"
+	digsegmap[2] <= 8'ha4; //"2"
+	digsegmap[3] <= 8'hb0; //"3"
+	digsegmap[4] <= 8'h99; //"4"
+	digsegmap[5] <= 8'h92; //"5"
+	digsegmap[6] <= 8'h82; //"6"
+	digsegmap[7] <= 8'hf8; //"7"
+	digsegmap[8] <= 8'h80; //"8"
+	digsegmap[9] <= 8'h90; //"9"
+	digsegmap[10]<= 8'h88; //"A"
+	digsegmap[11]<= 8'h83; //"B"
+	digsegmap[12]<= 8'hc6; //"C"
+	digsegmap[13]<= 8'ha1; //"D"
+	digsegmap[14]<= 8'h86; //"E"
+	digsegmap[15]<= 8'h8e; //"F"
 for(i=0;i<32;i=i+1)
 registers[i]=0;
 
@@ -80,7 +99,7 @@ end
  assign rd=romline[11:7];
  assign tmpof8=romline&'hff;
  assign tmpof16=romline&'hffff;
- assign address=load || store ? storeloadaddr : pc>>>2;
+ assign address=iosclk ? 32 : (load || store ? storeloadaddr : pc>>>2);
  assign rs1=romline[19:15];
  assign rs2=romline[24:20];
  assign imms={romline[31:25],romline[11:7]};
@@ -90,22 +109,31 @@ end
  assign immlui=romline[31:12];
 assign func3=romline[14:12];
 assign func7=romline[31:25];
+assign wr_enable=iosclk? 0 : store;
+reg[19:0] counter=0;
 
-
-
-reg clk2=0;
 always @(negedge clk)
 begin
 clk2<=!clk2;
 
-
 end
+
+
 always @(negedge clk2)
 begin
  
+
+if(counter[19])
+ iosclk<=2;
+else if(iosclk==2)
+  iosclk<=iosclk-1;
+else if(iosclk==1)begin
+ ledss<=romline;
+ sg<=digsegmap[romline];
+ iosclk<=iosclk-1;
+ end
  
- 
-if(load)
+ else if(load)
 	begin
 	   
 		case(load)
@@ -127,8 +155,7 @@ if(load)
 else if(store)
 	begin
 		store<=0;
-		wr_enable<=0;
-		 pc<=pc+4;
+ 		 pc<=pc+4;
 
 	end
 
@@ -237,15 +264,16 @@ case(romline[6:0])
 
    //JAL
 	7'b1101111:begin
-		
-			registers[rd]<=pc+4;
+		   if(rd)
+			  registers[rd]<=pc+4;
 			pc<=pc+({{11{imm20[19]}},imm20,1'b0});	  
 			
 		end
    //JALR
 	7'b1100111:begin
 		
-		 registers[rd]<=pc+4;
+		 if(rd)
+			  registers[rd]<=pc+4;
 		 pc<=($signed(registers[rs1])+$signed({{20{imm[11]}},imm})) & 'hfffffffe;	
 		
 		end
@@ -277,7 +305,6 @@ case(romline[6:0])
    7'b0100011:begin
 		 
 			 storeloadaddr<={{{20{imms[11]}}},imms}+registers[rs1];
-			 wr_enable<=1;
 			 store<=1;
 				case(func3)
 				 //SB
@@ -352,6 +379,7 @@ endcase
 
 
 end
+ counter<=counter+1;
 
 end
  

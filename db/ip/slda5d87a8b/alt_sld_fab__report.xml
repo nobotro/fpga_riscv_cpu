@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <deploy
- date="2019.07.28.21:28:37"
+ date="2019.07.30.08:08:03"
  outputDirectory="/home/home/fpgaworkspace/riscv_cpu/db/ip/slda5d87a8b/">
  <perimeter>
   <parameter

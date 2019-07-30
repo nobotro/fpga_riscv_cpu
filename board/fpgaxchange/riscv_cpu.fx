@@ -37,6 +37,18 @@ ledss[0],87,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,-
 ledss[1],86,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
 ledss[2],85,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
 ledss[3],84,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
+sg[0],128,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
+sg[1],121,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
+sg[2],125,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
+sg[3],129,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
+sg[4],132,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
+sg[5],126,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
+sg[6],124,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
+sg[7],127,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
+digclk[0],133,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
+digclk[1],135,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
+digclk[2],136,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
+digclk[3],137,output,2.5 V,Default,Series 50 Ohm without Calibration,FAST,swap_1,--
 clk,23,input,2.5 V,,Off,--,swap_0,--
 altera_reserved_tms,18,input,2.5 V,,Off,--,NOSWAP,--
 altera_reserved_tck,16,input,2.5 V,,Off,--,NOSWAP,--

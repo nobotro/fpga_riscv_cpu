@@ -1,5 +1,5 @@
 Analysis & Synthesis report for riscv_cpu
-Sun Jul 28 21:28:55 2019
+Tue Jul 30 08:08:21 2019
 Quartus Prime Version 18.1.1 Build 646 04/11/2019 SJ Lite Edition
 
 
@@ -52,16 +52,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Jul 28 21:28:54 2019       ;
+; Analysis & Synthesis Status        ; Successful - Tue Jul 30 08:08:21 2019       ;
 ; Quartus Prime Version              ; 18.1.1 Build 646 04/11/2019 SJ Lite Edition ;
 ; Revision Name                      ; riscv_cpu                                   ;
 ; Top-level Entity Name              ; riscv_cpu                                   ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 4,297                                       ;
-;     Total combinational functions  ; 3,269                                       ;
-;     Dedicated logic registers      ; 1,266                                       ;
-; Total registers                    ; 1266                                        ;
-; Total pins                         ; 6                                           ;
+; Total logic elements               ; 4,355                                       ;
+;     Total combinational functions  ; 3,323                                       ;
+;     Dedicated logic registers      ; 1,299                                       ;
+; Total registers                    ; 1299                                        ;
+; Total pins                         ; 18                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 128,000                                     ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -211,31 +211,31 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+--------+
 ; Resource                                    ; Usage  ;
 +---------------------------------------------+--------+
-; Estimated Total logic elements              ; 4,297  ;
+; Estimated Total logic elements              ; 4,355  ;
 ;                                             ;        ;
-; Total combinational functions               ; 3269   ;
+; Total combinational functions               ; 3323   ;
 ; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 2232   ;
-;     -- 3 input functions                    ; 860    ;
-;     -- <=2 input functions                  ; 177    ;
+;     -- 4 input functions                    ; 2241   ;
+;     -- 3 input functions                    ; 880    ;
+;     -- <=2 input functions                  ; 202    ;
 ;                                             ;        ;
 ; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 2906   ;
-;     -- arithmetic mode                      ; 363    ;
+;     -- normal mode                          ; 2942   ;
+;     -- arithmetic mode                      ; 381    ;
 ;                                             ;        ;
-; Total registers                             ; 1266   ;
-;     -- Dedicated logic registers            ; 1266   ;
+; Total registers                             ; 1299   ;
+;     -- Dedicated logic registers            ; 1299   ;
 ;     -- I/O registers                        ; 0      ;
 ;                                             ;        ;
-; I/O pins                                    ; 6      ;
+; I/O pins                                    ; 18     ;
 ; Total memory bits                           ; 128000 ;
 ;                                             ;        ;
 ; Embedded Multiplier 9-bit elements          ; 0      ;
 ;                                             ;        ;
 ; Maximum fan-out node                        ; clk2   ;
-; Maximum fan-out                             ; 1144   ;
-; Total fan-out                               ; 16679  ;
-; Average fan-out                             ; 3.64   ;
+; Maximum fan-out                             ; 1177   ;
+; Total fan-out                               ; 16920  ;
+; Average fan-out                             ; 3.60   ;
 +---------------------------------------------+--------+
 
 
@@ -244,7 +244,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                   ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |riscv_cpu                                                                                                                              ; 3269 (3052)         ; 1266 (1112)               ; 128000      ; 0            ; 0       ; 0         ; 6    ; 0            ; |riscv_cpu                                                                                                                                                                                                                                                                                                                                            ; riscv_cpu                         ; work         ;
+; |riscv_cpu                                                                                                                              ; 3323 (3106)         ; 1299 (1145)               ; 128000      ; 0            ; 0       ; 0         ; 18   ; 0            ; |riscv_cpu                                                                                                                                                                                                                                                                                                                                            ; riscv_cpu                         ; work         ;
 ;    |ramm:ram|                                                                                                                           ; 97 (0)              ; 68 (0)                    ; 128000      ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv_cpu|ramm:ram                                                                                                                                                                                                                                                                                                                                   ; ramm                              ; work         ;
 ;       |altsyncram:altsyncram_component|                                                                                                 ; 97 (0)              ; 68 (0)                    ; 128000      ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv_cpu|ramm:ram|altsyncram:altsyncram_component                                                                                                                                                                                                                                                                                                   ; altsyncram                        ; work         ;
 ;          |altsyncram_tgk1:auto_generated|                                                                                               ; 97 (0)              ; 68 (0)                    ; 128000      ; 0            ; 0       ; 0         ; 0    ; 0            ; |riscv_cpu|ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated                                                                                                                                                                                                                                                                    ; altsyncram_tgk1                   ; work         ;
@@ -293,9 +293,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------+----------------------------------------+
 ; pc[0]                                 ; Stuck at GND due to stuck port data_in ;
 ; load[1,2,8,9]                         ; Merged with load[10]                   ;
-; wr_enable                             ; Merged with store                      ;
 ; load[10]                              ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 7 ;                                        ;
+; sg[7]~reg0                            ; Stuck at VCC due to stuck port data_in ;
+; iosclk[2]                             ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 8 ;                                        ;
 +---------------------------------------+----------------------------------------+
 
 
@@ -304,12 +305,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1266  ;
-; Number of registers using Synchronous Clear  ; 18    ;
+; Total registers                              ; 1299  ;
+; Number of registers using Synchronous Clear  ; 17    ;
 ; Number of registers using Synchronous Load   ; 22    ;
 ; Number of registers using Asynchronous Clear ; 60    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1221  ;
+; Number of registers using Clock Enable       ; 1230  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -330,21 +331,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |riscv_cpu|ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[1]                                     ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv_cpu|ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[11]                                               ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |riscv_cpu|ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[0]                                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |riscv_cpu|ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[17]                                               ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |riscv_cpu|iosclk[0]                                                                                                                                                            ;
 ; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |riscv_cpu|ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[6]                                                ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |riscv_cpu|ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|word_counter[4] ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 16 LEs               ; 64 LEs                 ; Yes        ; |riscv_cpu|datwr[16]                                                                                                                                                            ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 8 LEs                ; 32 LEs                 ; Yes        ; |riscv_cpu|datwr[10]                                                                                                                                                            ;
-; 10:1               ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |riscv_cpu|load[4]                                                                                                                                                              ;
-; 26:1               ; 4 bits    ; 68 LEs        ; 40 LEs               ; 28 LEs                 ; Yes        ; |riscv_cpu|ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[0]      ;
-; 66:1               ; 11 bits   ; 484 LEs       ; 11 LEs               ; 473 LEs                ; Yes        ; |riscv_cpu|storeloadaddr[3]                                                                                                                                                     ;
-; 78:1               ; 30 bits   ; 1560 LEs      ; 90 LEs               ; 1470 LEs               ; Yes        ; |riscv_cpu|pc[16]                                                                                                                                                               ;
-; 31:1               ; 4 bits    ; 80 LEs        ; 60 LEs               ; 20 LEs                 ; No         ; |riscv_cpu|registers                                                                                                                                                            ;
-; 33:1               ; 2 bits    ; 44 LEs        ; 34 LEs               ; 10 LEs                 ; No         ; |riscv_cpu|registers                                                                                                                                                            ;
-; 32:1               ; 4 bits    ; 84 LEs        ; 56 LEs               ; 28 LEs                 ; No         ; |riscv_cpu|registers                                                                                                                                                            ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |riscv_cpu|ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|word_counter[3] ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 16 LEs               ; 64 LEs                 ; Yes        ; |riscv_cpu|datwr[22]                                                                                                                                                            ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 8 LEs                ; 32 LEs                 ; Yes        ; |riscv_cpu|datwr[8]                                                                                                                                                             ;
+; 10:1               ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |riscv_cpu|load[0]                                                                                                                                                              ;
+; 65:1               ; 10 bits   ; 430 LEs       ; 10 LEs               ; 420 LEs                ; Yes        ; |riscv_cpu|storeloadaddr[8]                                                                                                                                                     ;
+; 26:1               ; 4 bits    ; 68 LEs        ; 40 LEs               ; 28 LEs                 ; Yes        ; |riscv_cpu|ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[2]      ;
+; 78:1               ; 20 bits   ; 1040 LEs      ; 60 LEs               ; 980 LEs                ; Yes        ; |riscv_cpu|pc[17]                                                                                                                                                               ;
+; 81:1               ; 10 bits   ; 540 LEs       ; 30 LEs               ; 510 LEs                ; Yes        ; |riscv_cpu|pc[5]                                                                                                                                                                ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |riscv_cpu|address[0]                                                                                                                                                           ;
+; 32:1               ; 4 bits    ; 84 LEs        ; 60 LEs               ; 24 LEs                 ; No         ; |riscv_cpu|registers                                                                                                                                                            ;
 ; 32:1               ; 4 bits    ; 84 LEs        ; 56 LEs               ; 28 LEs                 ; No         ; |riscv_cpu|registers                                                                                                                                                            ;
 ; 32:1               ; 8 bits    ; 168 LEs       ; 128 LEs              ; 40 LEs                 ; No         ; |riscv_cpu|registers                                                                                                                                                            ;
+; 34:1               ; 2 bits    ; 44 LEs        ; 34 LEs               ; 10 LEs                 ; No         ; |riscv_cpu|registers                                                                                                                                                            ;
+; 33:1               ; 4 bits    ; 88 LEs        ; 60 LEs               ; 28 LEs                 ; No         ; |riscv_cpu|registers                                                                                                                                                            ;
 ; 34:1               ; 4 bits    ; 88 LEs        ; 68 LEs               ; 20 LEs                 ; No         ; |riscv_cpu|registers                                                                                                                                                            ;
 ; 36:1               ; 2 bits    ; 48 LEs        ; 36 LEs               ; 12 LEs                 ; No         ; |riscv_cpu|registers                                                                                                                                                            ;
 ; 38:1               ; 2 bits    ; 50 LEs        ; 36 LEs               ; 14 LEs                 ; No         ; |riscv_cpu|registers                                                                                                                                                            ;
@@ -455,28 +459,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 33                          ;
-; cycloneiii_ff         ; 1180                        ;
+; boundary_port         ; 45                          ;
+; cycloneiii_ff         ; 1213                        ;
 ;     CLR               ; 8                           ;
-;     ENA               ; 1138                        ;
+;     ENA               ; 1148                        ;
 ;     ENA CLR           ; 7                           ;
 ;     ENA CLR SLD       ; 12                          ;
-;     ENA SCLR          ; 6                           ;
-;     plain             ; 9                           ;
-; cycloneiii_lcell_comb ; 3149                        ;
-;     arith             ; 355                         ;
-;         2 data inputs ; 56                          ;
-;         3 data inputs ; 299                         ;
-;     normal            ; 2794                        ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 6                           ;
-;         2 data inputs ; 78                          ;
-;         3 data inputs ; 531                         ;
-;         4 data inputs ; 2178                        ;
+;     ENA SCLR          ; 5                           ;
+;     plain             ; 33                          ;
+; cycloneiii_lcell_comb ; 3204                        ;
+;     arith             ; 373                         ;
+;         2 data inputs ; 73                          ;
+;         3 data inputs ; 300                         ;
+;     normal            ; 2831                        ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 84                          ;
+;         3 data inputs ; 550                         ;
+;         4 data inputs ; 2187                        ;
 ; cycloneiii_ram_block  ; 32                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 23.00                       ;
-; Average LUT depth     ; 15.90                       ;
+; Max LUT depth         ; 22.00                       ;
+; Average LUT depth     ; 15.57                       ;
 +-----------------------+-----------------------------+
 
 
@@ -485,7 +489,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:11     ;
+; Top            ; 00:00:12     ;
 +----------------+--------------+
 
 
@@ -495,7 +499,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.1 Build 646 04/11/2019 SJ Lite Edition
-    Info: Processing started: Sun Jul 28 21:28:03 2019
+    Info: Processing started: Tue Jul 30 08:07:30 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off riscv_cpu -c riscv_cpu
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -504,12 +508,19 @@ Info (12021): Found 1 design units, including 1 entities, in source file riscv_c
 Info (12021): Found 1 design units, including 1 entities, in source file ramm.v
     Info (12023): Found entity 1: ramm File: /home/home/fpgaworkspace/riscv_cpu/ramm.v Line: 40
 Info (12127): Elaborating entity "riscv_cpu" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at riscv_cpu.v(53): object "do_cond_branch" assigned a value but never read File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 53
-Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(81): truncated value with size 32 to match size of target (8) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 81
-Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(82): truncated value with size 32 to match size of target (16) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 82
-Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(90): truncated value with size 20 to match size of target (12) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 90
-Warning (10034): Output port "ledss" at riscv_cpu.v(8) has no driver File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 8
-Info (12128): Elaborating entity "ramm" for hierarchy "ramm:ram" File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 74
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(100): truncated value with size 32 to match size of target (8) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 100
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(101): truncated value with size 32 to match size of target (16) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 101
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(109): truncated value with size 20 to match size of target (12) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 109
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(112): truncated value with size 32 to match size of target (1) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 112
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(129): truncated value with size 32 to match size of target (3) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 129
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(131): truncated value with size 32 to match size of target (4) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 131
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(133): truncated value with size 32 to match size of target (3) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 133
+Warning (10230): Verilog HDL assignment warning at riscv_cpu.v(382): truncated value with size 32 to match size of target (20) File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 382
+Warning (10030): Net "digsegmap.data_a" at riscv_cpu.v(55) has no driver or initial value, using a default initial value '0' File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 55
+Warning (10030): Net "digsegmap.waddr_a" at riscv_cpu.v(55) has no driver or initial value, using a default initial value '0' File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 55
+Warning (10030): Net "digsegmap.we_a" at riscv_cpu.v(55) has no driver or initial value, using a default initial value '0' File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 55
+Warning (10034): Output port "digclk" at riscv_cpu.v(10) has no driver File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 10
+Info (12128): Elaborating entity "ramm" for hierarchy "ramm:ram" File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 93
 Info (12128): Elaborating entity "altsyncram" for hierarchy "ramm:ram|altsyncram:altsyncram_component" File: /home/home/fpgaworkspace/riscv_cpu/ramm.v Line: 86
 Info (12130): Elaborated megafunction instantiation "ramm:ram|altsyncram:altsyncram_component" File: /home/home/fpgaworkspace/riscv_cpu/ramm.v Line: 86
 Info (12133): Instantiated megafunction "ramm:ram|altsyncram:altsyncram_component" with the following parameter: File: /home/home/fpgaworkspace/riscv_cpu/ramm.v Line: 86
@@ -535,7 +546,7 @@ Info (12128): Elaborating entity "altsyncram_tgk1" for hierarchy "ramm:ram|altsy
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_01b2.tdf
     Info (12023): Found entity 1: altsyncram_01b2 File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_01b2.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_01b2" for hierarchy "ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|altsyncram_01b2:altsyncram1" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_tgk1.tdf Line: 37
-Critical Warning (127005): Memory depth (4000) in the design file differs from memory depth (19) in the Memory Initialization File "/home/home/fpgaworkspace/riscv_cpu/rom.mif" -- setting initial value for remaining addresses to 0 File: /home/home/fpgaworkspace/riscv_cpu/ramm.v Line: 86
+Critical Warning (127005): Memory depth (4000) in the design file differs from memory depth (29) in the Memory Initialization File "/home/home/fpgaworkspace/riscv_cpu/rom.mif" -- setting initial value for remaining addresses to 0 File: /home/home/fpgaworkspace/riscv_cpu/ramm.v Line: 86
 Info (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_tgk1.tdf Line: 38
 Info (12130): Elaborated megafunction instantiation "ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2" File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_tgk1.tdf Line: 38
 Info (12133): Instantiated megafunction "ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter: File: /home/home/fpgaworkspace/riscv_cpu/db/altsyncram_tgk1.tdf Line: 38
@@ -551,7 +562,7 @@ Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "ramm
 Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: /home/home/intelFPGA_lite/18.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
 Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "ramm:ram|altsyncram:altsyncram_component|altsyncram_tgk1:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr" File: /home/home/intelFPGA_lite/18.1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd Line: 828
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2019.07.28.21:28:30 Progress: Loading slda5d87a8b/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2019.07.30.08:07:56 Progress: Loading slda5d87a8b/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -574,13 +585,15 @@ Info (12021): Found 2 design units, including 1 entities, in source file db/ip/s
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: /home/home/fpgaworkspace/riscv_cpu/db/ip/slda5d87a8b/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slda5d87a8b/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: /home/home/fpgaworkspace/riscv_cpu/db/ip/slda5d87a8b/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
-Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "registers" is uninferred due to asynchronous read logic File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 15
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276004): RAM logic "digsegmap" is uninferred due to inappropriate RAM size File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 55
+    Info (276007): RAM logic "registers" is uninferred due to asynchronous read logic File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 17
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "ledss[0]" is stuck at GND File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 8
-    Warning (13410): Pin "ledss[1]" is stuck at GND File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 8
-    Warning (13410): Pin "ledss[2]" is stuck at GND File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 8
-    Warning (13410): Pin "ledss[3]" is stuck at GND File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 8
+    Warning (13410): Pin "sg[7]" is stuck at VCC File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 122
+    Warning (13410): Pin "digclk[0]" is stuck at GND File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 10
+    Warning (13410): Pin "digclk[1]" is stuck at GND File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 10
+    Warning (13410): Pin "digclk[2]" is stuck at GND File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 10
+    Warning (13410): Pin "digclk[3]" is stuck at GND File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 10
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Warning (20013): Ignored 7 assignments for entity "riscv_cpu.v" -- entity does not exist in design
     Warning (20014): Assignment for entity set_global_assignment -name EDA_DESIGN_ENTRY_SYNTHESIS_TOOL "FPGA Compiler II" -entity riscv_cpu.v was ignored
@@ -594,15 +607,15 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "reset" File: /home/home/fpgaworkspace/riscv_cpu/riscv_cpu.v Line: 5
-Info (21057): Implemented 4384 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 4454 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 4341 logic cells
+    Info (21059): Implemented 17 output pins
+    Info (21061): Implemented 4399 logic cells
     Info (21064): Implemented 32 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
-    Info: Peak virtual memory: 979 megabytes
-    Info: Processing ended: Sun Jul 28 21:28:55 2019
-    Info: Elapsed time: 00:00:52
-    Info: Total CPU time (on all processors): 00:01:34
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 30 warnings
+    Info: Peak virtual memory: 993 megabytes
+    Info: Processing ended: Tue Jul 30 08:08:21 2019
+    Info: Elapsed time: 00:00:51
+    Info: Total CPU time (on all processors): 00:01:38
 
 

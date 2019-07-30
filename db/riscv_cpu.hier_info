@@ -1,10 +1,22 @@
 |riscv_cpu
 clk => clk2.CLK
 reset => ~NO_FANOUT~
-ledss[0] <= <GND>
-ledss[1] <= <GND>
-ledss[2] <= <GND>
-ledss[3] <= <GND>
+ledss[0] <= ledss[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ledss[1] <= ledss[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ledss[2] <= ledss[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ledss[3] <= ledss[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+sg[0] <= sg[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+sg[1] <= sg[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+sg[2] <= sg[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+sg[3] <= sg[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+sg[4] <= sg[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+sg[5] <= sg[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+sg[6] <= sg[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+sg[7] <= sg[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+digclk[0] <= <GND>
+digclk[1] <= <GND>
+digclk[2] <= <GND>
+digclk[3] <= <GND>
 
 
 |riscv_cpu|ramm:ram

@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 d/home/home/fpgaworkspace/riscv_cpu
 vramm
-Z1 !s110 1564170562
+Z1 !s110 1564430703
 !i10b 1
 !s100 PO[U;C_2e1=V3=ha91NFD2
 IZ2RWg?8jW^<<;odTiiM1U1
@@ -23,7 +23,7 @@ Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z4 !s108 1564170562.000000
+Z4 !s108 1564430703.000000
 !s107 ramm.v|
 !s90 -reportprogress|300|-work|./work|ramm.v|
 !i113 1
@@ -32,11 +32,11 @@ Z6 tCvgOpt 0
 vriscv_cpu
 R1
 !i10b 1
-!s100 ^mj^e<do<l?5JF1nj2K:91
-IN1fJ1aFJzz67=Cb1^g06M3
+!s100 YaB^ON^U5N4Pm8SJL>5CZ2
+IMhYld3G[iK7c4h@d4JW]h1
 R2
 R0
-w1564170427
+w1564374049
 8riscv_cpu.v
 Friscv_cpu.v
 L0 4
