@@ -320,26 +320,26 @@ case(romline[6:0])
 		 //BNE
 		 3'b001:
 					if(registers[rs1]!=registers[rs2])
-		             pc<=pc+{{19{imm[11]}},imm,1'b0};
-				   else pc<=pc+4;
+		             			pc<=pc+{{19{imm[11]}},imm,1'b0};
+				   	else pc<=pc+4;
 		 
 		 
 		 //BLT
 		 3'b100:
 					if($signed(registers[rs1])<$signed(registers[rs2]))
-		             pc<=pc+{{19{imm[11]}},imm,1'b0};
+		            			 pc<=pc+{{19{imm[11]}},imm,1'b0};
 					else pc<=pc+4;
 		 
 		 //BLTU
 		 3'b110:
 					if(registers[rs1]<registers[rs2])
-		            pc<=pc+{{19{imm[11]}},imm,1'b0};
-		         else pc<=pc+4;
+		            			pc<=pc+{{19{imm[11]}},imm,1'b0};
+		         		else pc<=pc+4;
 		 
 		 //BGEU
 		 3'b111:
 					if(registers[rs1]>=registers[rs2])
-		            pc<=pc+{{19{imm[11]}},imm,1'b0};
+		            			pc<=pc+{{19{imm[11]}},imm,1'b0};
 					else pc<=pc+4;
 		 
 		 
