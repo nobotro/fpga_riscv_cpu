@@ -3,7 +3,7 @@ This repository contains an extremely simple implementation of the RV32I ISA. Th
 
 ## Current Design
 - Entirely written in Verilog.
-- Every opcode need one clock cycle to execute, except memory operation(store/load).
+- Every opcode need one clock cycle to execute, except memory operations(store/load).
 - Used 1 port block ram ip for memory inteface
 - Not designed with multiple RISC-V harts .
 - The privileged ISA is **not** implemented.
