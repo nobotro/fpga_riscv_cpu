@@ -15,7 +15,7 @@ This repository contains an extremely simple implementation of the RV32I ISA. Th
 	all.sh is main tool which make all stuffs(compile c code,generate mif file)
 - led2.c is rom which function is to write number from 0 to 15 in memory address 32.
   32 is memory mapped io address,which is used to control leds and 7 segment display
--rom.mif file is already generated memory configuration file from led2.c
+- rom.mif file is already generated memory configuration file from led2.c
 
 ## Soc Demonstration
 https://www.youtube.com/watch?v=lHMueQKXJOU
