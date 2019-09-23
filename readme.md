@@ -12,10 +12,10 @@ This repository contains an extremely simple implementation of the RV32I ISA. Th
 ## User Guide
 - "whole quartus project" directory contains Quartus 18.1 lite project file.
 - "extra" directory contains utils to compile c program rom and generate memory configuration ".mif" file from it.
-	all.sh is main tool which make all stufs(compile c code,generate mif file)
+	all.sh is main tool which make all stuffs(compile c code,generate mif file)
 - led2.c is rom which function is to write number from 0 to 15 in memory address 32.
   32 is memory mapped io address,which is used to control leds and 7 segment display
 -rom.mif file is already generated memory configuration file from led2.c
 
-##Soc Demonstration
+## Soc Demonstration
 https://www.youtube.com/watch?v=lHMueQKXJOU
