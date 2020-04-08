@@ -18,4 +18,4 @@ This repository contains an extremely simple implementation of the RV32I ISA. Th
 - rom.mif file is already generated memory configuration file from led2.c
 
 ## Soc Demonstration
-https://www.youtube.com/watch?v=lHMueQKXJOU
+https://www.youtube.com/watch?v=oh5zmDeH0jg
