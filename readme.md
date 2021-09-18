@@ -20,4 +20,4 @@ This repository contains an extremely simple implementation of the RV32I ISA. Th
 ## Soc Demonstration
 https://www.youtube.com/watch?v=oh5zmDeH0jg
 
-If you want to buy me coffee or beer https://paypal.me/nobotro
+ 
