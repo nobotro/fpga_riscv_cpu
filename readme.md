@@ -1,3 +1,7 @@
+# Note!!!
+I have fixed some bugs on this cpu core.</br>
+please use more stable core from that repo https://github.com/nobotro/Risc-v-chip8
+
 ## fpga_riscv_cpu
 This repository contains an extremely simple implementation of the RV32I ISA. The project is entirely academic, it does not aim to be competitive against complex implementations. The rationale behind it was basically learning about RISC-V, the ISA, and processor design in general. If you want to deploy a RISC-V core, [I strongly recommend using a fully-featured and tested core instead.](https://github.com/riscv/riscv-wiki/wiki/RISC-V-Cores-and-SoCs)  
 
